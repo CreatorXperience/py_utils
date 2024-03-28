@@ -4,6 +4,7 @@ list[0] = "Hello"
 list = [1,2,3,4,5]
 list[0:3] = [9,10,11]
 
+
 list.extend([10, 11, 20])
 list.append(10)
 list.remove(10)
