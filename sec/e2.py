@@ -53,7 +53,7 @@ product.clear()
 print(product)
 
 
-# update 
+# update deque
 item = {'name': "shoe"}
 item2= {"product": "bag"}
 new_item = {}
@@ -78,4 +78,8 @@ sub = set.issubset(new_set)
 joint = set.isdisjoint(new_set)
 sup = set.issuperset(new_set)
 print(sup)
+
+
+
+
 
