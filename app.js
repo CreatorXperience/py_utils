@@ -25,3 +25,4 @@ clone = arr
 arr.reverse().pop()
 clone.pop()
 console.log(arr == clone)
+
