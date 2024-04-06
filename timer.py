@@ -43,4 +43,5 @@ print(
 
 
 count = Counter([1,2,3,4,5,6,78,])
+item = Counter.popitem({1:1})
 print(count)
