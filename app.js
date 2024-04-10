@@ -108,5 +108,9 @@ return this.map.values()
 
 const counter = new Counter([1,{ite:"hello"},2,3,4,4,4,5,{ite:"hello"}, "hi",6])
 
+tup = ("peter", "paul", "shark")
+interator = iter(tup)
+print(iterator)
+
 
 

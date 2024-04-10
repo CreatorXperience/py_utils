@@ -360,3 +360,16 @@ print("this is  %i dollar"%(var))
 
 val  = [i * 3  for i in range(1,5) if i % 2]
 print(val)
+
+
+arr1 = [12,50,40,10,5]
+arr1.sort(reverse=True)
+
+print(arr1)
+
+
+sett = {1,2,3}
+sett2 = {4,5,6}
+
+sett.update(sett2)
+print(sett)
