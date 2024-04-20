@@ -130,3 +130,57 @@ def join(x:int, arr: list =array.array("i", [])):
 print(join(20))  # returns  [20]
 print(join(50,[])) # returns  [50]
 print(join(40))  # returns [20,40]
+
+
+
+
+
+def cheeseburger(cheese:str, *request:str, **props ):
+    print(f"do you have cheese {cheese}")
+    for req in request:
+        print(type(req),req)
+    
+    
+    for prop,vala in props.items(): 
+        print(prop,":",vala)
+
+
+
+cheeseburger("burgers","burger is good", "the you want more", "what the heck", "this is amazing", peter="you are sick in the head", paul="you aint okay")
+
+def poskwd(pst,/,pt, *,kwd):
+    print(pst, "keyword", kwd, pt)
+
+poskwd(20,1, kwd="different pattern")
+
+
+def foo(name, **kwds):
+    return 'peter' in kwds
+
+print(foo("peter", **{"peter": "parker"}))
+
+
+
+def pwd(d, /, **f):
+    print("name" in f)
+
+pwd("hello", name="obj")
+
+pwd("yo", **{"name": "peter"})
+
+
+print("yo".join(("1","2","3","4")))
+
+lslist = [1,6]
+tuplee  = tuple(lslist)
+print(list(range(*lslist)))
+
+
+def parrot(voltage, state="a stiff",action='VOOM'):
+    print("-- This parrot wouldn't",action, end=' ')
+    print("if you put", voltage,"volts through it")
+    print("E's ", state, "!")
+d = {"voltage": "four million", "state":"bleedin' demised", "action": "VOOM"}
+
+
+parrot(**d)
