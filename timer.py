@@ -1,5 +1,6 @@
 # from time import time
 from collections import Counter 
+import array 
 # allocated_time = 60
 
 # game_over = False
@@ -76,14 +77,12 @@ http_error(False)
 
 
 class Points:
+    __match_args__ = ("x","a")
     def __init__(self,x,y):
         self.x = x
         self.y = y
-
-
-
-points  = (0,1)
-# match points:
+  
+points  = Points(0,0)
 #     case 0,1:
 #         print("found")
 #     case 0,2:
@@ -92,11 +91,42 @@ points  = (0,1)
 #         print("0,3 not at all")
 
 
-match points: 
-    case 1,y: 
+# match points: 
+#     case 1,y: 
+#         print(f"Y={y}")
+#     case x,1:
+#         print(f"X={x}")
+
+
+# print(Points(0,2)) 
+
+
+match points:
+    case Points(a=0,y=0):
+        print("Origin")
+    case Points(x=0, y=y):
         print(f"Y={y}")
-    case x,1:
-        print(f"X={x}")
+    case Points():
+        print("Somewhere else")
+    case _ : 
+        print("nothing else")
+ 
 
 
-print(Points(0,2)) 
+def multiply(x: int,y:int,z=20):
+    tot = x+y+z
+    print(f"x{x} + y{y}+ z{z} = {tot}")
+
+
+multiply(z=10,x=40,y=10)
+
+#python code
+
+def join(x:int, arr: list =array.array("i", [])):
+    if x : 
+        arr.append(x)
+        return arr
+
+print(join(20))  # returns  [20]
+print(join(50,[])) # returns  [50]
+print(join(40))  # returns [20,40]
