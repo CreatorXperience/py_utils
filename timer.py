@@ -1,6 +1,6 @@
-# from time import time
-from collections import Counter 
-import array 
+from collections import Counter
+import array
+import math
 # allocated_time = 60
 
 # game_over = False
@@ -177,6 +177,7 @@ print(list(range(*lslist)))
 
 
 def parrot(voltage, state="a stiff",action='VOOM'):
+
     print("-- This parrot wouldn't",action, end=' ')
     print("if you put", voltage,"volts through it")
     print("E's ", state, "!")
@@ -184,3 +185,95 @@ d = {"voltage": "four million", "state":"bleedin' demised", "action": "VOOM"}
 
 
 parrot(**d)
+
+
+def calculateDistance(lat:int): 
+    return lambda long: long + lat
+
+
+getlocation = calculateDistance(20)
+print(getlocation(30))
+
+pair = [(1, "one"),  (2,"two"), (3, "three"), (4, "four")] 
+
+pair.sort(key=lambda item: item[1], reverse=True)
+print(pair)
+
+print((1,2,3)+(4,5,6))
+
+
+ext = [1,2,3]
+ext.extend([4,5,6])
+print(ext)
+
+
+questions = ["name", "quest", "favorite color"]
+answers = ["peter parker",  "spider man", "red and black"]
+
+
+for q,a in zip(questions, answers):
+    print(f"what is your {q} ? it is {a}")
+
+
+
+for i in range(1,10,2):
+    print(i)
+
+
+cart = ["apple", "berry", "orange", "pineapple"]
+for fruit in sorted(cart):
+    print(fruit)
+
+
+floatss = [56.2, float('NaN'), 57.8, float('NaN'), 5.23, 2.96, float('NaN')]
+new_floats = []
+
+for i in floatss:
+    if not math.isnan(i):
+        new_floats.append(i)
+
+
+print(new_floats)
+
+
+first_item = ["one", "two","three", "four", "five"]
+sec_item = ["Ball", "Cat", "Dog", "Egg", "Banana","Apple"]
+items_set =  []
+
+#zipped = zip(first_item, sec_item)
+#for  item1, item2  in zipped:
+ #   items_set.append((item1, item2))
+
+
+#print(items_set)
+
+
+class Merge:
+    def __init__(self, item1, item2):
+        self.item1 = item1
+        self.item2= item2
+        self.length = -1
+
+    def __iter__(self):
+        self.item1 = self.item1
+        self.item2 =  self.item2
+        return self
+
+    def __next__(self):
+        try:
+
+            self.length = self.length+1
+            if self.length <= (len(self.item1) -1):
+                return (self.item1[self.length], self.item2[self.length])
+            else:
+                raise StopIteration
+        except:
+            raise StopIteration
+
+    def __str__():
+        return  "this is a class utility for merging iterators"
+
+
+
+for  item1,item2 in Merge(first_item, sec_item):
+        print(item1,item2)
