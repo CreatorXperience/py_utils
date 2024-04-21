@@ -196,7 +196,7 @@ def add(x,y):
 add(2,5)
 
 
-is_what =  not type(10) is int
+is_what =  not type(11) is int
 print(is_what)
 is_what =  not type(10) is int
 print(is_what)
