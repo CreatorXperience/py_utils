@@ -269,11 +269,11 @@ class Merge:
                 raise StopIteration
         except:
             raise StopIteration
-
-    def __str__():
-        return  "this is a class utility for merging iterators"
+    def __str__(self):
+        return  f"this is a class utility for merging iterators, e.g {self.item1}, {self.item2}"
 
 
 
 for  item1,item2 in Merge(first_item, sec_item):
-        print(item1,item2)
+    print(Merge(first_item, sec_item))
+    print(item1,item2)
