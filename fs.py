@@ -83,11 +83,12 @@ def array_diff(a:list, b:list):
     return another_array
 
 
-print(array_diff([6,2,8,9,0],[]))
+print(array_diff([1,2,3,8],[4,5,6,2]))
 
 
-# def array_differ_ence(a:list, b:list):
-#     for i in zip(a,b):
-#         print(i)
+def array_differ_ence(a:list, b:list):
+    return [x for x in a if not x in b]
 
-# array_differ_ence([1,2,3,8],[4,5,6,2])
+    
+
+print(array_differ_ence([1,2,3,8],[4,5,6,2]))
