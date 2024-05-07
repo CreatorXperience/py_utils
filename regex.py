@@ -24,5 +24,4 @@ def reversed_word(item:str):
     words=item.split(" ")
     reversed_words=[word[::-1] for word in words]
     print(" ".join(reversed_words))
-
 reversed_word("This  is  a  word") 
