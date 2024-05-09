@@ -84,7 +84,6 @@ def array_diff(a:list, b:list):
     print(positions)
     for ind_x,i in enumerate(positions):
         a[i] = None
-    
 
 
     another_array = []
@@ -92,10 +91,7 @@ def array_diff(a:list, b:list):
     for i, value in enumerate(a):
         if value is not None:
             another_array.append(value)
-        
-             
     return another_array
-
 
 print(array_diff([1,2,3,8],[4,5,6,2]))
 
@@ -103,7 +99,6 @@ print(array_diff([1,2,3,8],[4,5,6,2]))
 def array_differ_ence(a:list, b:list):
     return [x for x in a if not x in b]
 
-    
 
 print(array_differ_ence([1,2,3,8],[4,5,6,2]))
 
@@ -150,8 +145,6 @@ def  type_rep():
     print(f"{inf:f}")
     print(f"{inf:F}")
 
-
-    
 
 
 
