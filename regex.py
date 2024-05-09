@@ -37,7 +37,21 @@ print(matched.group("domain"))
 
 find_all = re.findall(r"\w+\@\w+\.\w+", recipient)
 grp_all= re.findall(r"(\w{3})\.(\w+)\.(\w{2,3})",recipient)
+find_iter= re.finditer(r"\w+\@\w+\.\w+", recipient)
 print(find_all)
 print(grp_all)
 domains=[y+"."+z for x,y,z in grp_all] 
 print(domains)
+print(find_iter)
+
+print(next(find_iter))
+print(next(find_iter))
+print(next(find_iter))
+print(next(find_iter))
+
+
+machala = re.finditer(r"(?P<name>\w+)\@(?P<service>\w+)\.(?P<domain>\w+)", recipient)
+print(machala)
+
+for item in machala:
+    print(item.groupdict())
