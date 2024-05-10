@@ -5,7 +5,7 @@
 
     """
 import re
-import math
+import sys
 recipient = '''Ezra Koenig <ekoenig@vpwk.come>,
 ...: Rostam Batmanglij <rostam@vpwk.com>,
 ...: Chris Tomson <ctomson@vpwk.com,
@@ -44,14 +44,96 @@ domains=[y+"."+z for x,y,z in grp_all]
 print(domains)
 print(find_iter)
 
-print(next(find_iter))
-print(next(find_iter))
-print(next(find_iter))
-print(next(find_iter))
+# print(next(find_iter))
+# print(next(find_iter))
+# print(next(find_iter))
+# print(next(find_iter))
+
+
 
 
 machala = re.finditer(r"(?P<name>\w+)\@(?P<service>\w+)\.(?P<domain>\w+)", recipient)
 print(machala)
 
-for item in machala:
-    print(item.groupdict())
+# for item in machala:
+#     print(item.groupdict())
+
+
+# user = re.sub("(?P<name>\w+)\@(?P<SLD>\w+)\.(?P<TLD>\w+)",
+#         "\g<TLD>.\g<SLD>.\g<name>", recipient)
+# print(user)
+
+
+
+regex=re.compile(r"\w+\@\w+\.\w+")
+print(regex.search(recipient))
+# print(regex)
+
+
+def count(n):
+    while True:
+        n=n+1
+        yield n
+
+# c=count(1)
+# print(next(c))
+
+def fibonnaci():
+    first = 0
+    last = 1
+    while True:
+        first,last = last, first+last
+        yield first
+
+f = fibonnaci()
+print(next(f))
+print(next(f))
+print(next(f))
+
+
+for x in  f:
+    print(x)
+    if x > 12:
+        break
+
+
+gen_comprehension = (x for x in range(100))
+list_comprehension = [x for x in range(100)]
+print(next(gen_comprehension))
+print(next(gen_comprehension))
+print(next(gen_comprehension))
+
+
+
+size = sys.getsizeof(gen_comprehension)
+size_l = sys.getsizeof(list_comprehension)
+print(size)
+print(size_l)
+
+
+word = "smogtether"
+
+new_s = "".join([x.capitalize() for x in word])
+print([new_s])
+
+
+
+def alt():
+    boo=0
+    while True:
+        if boo == 0:
+            boo = 1
+            yield False
+        elif boo == 1:
+            boo = 0
+            yield True
+
+a = alt()
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
