@@ -2,6 +2,8 @@ import os
 import shutil
 import sys
 import re
+import math
+import random
 print(os.getcwd())
 # print(os.chdir("/etc/"))
 print(os.getcwd())
@@ -27,4 +29,10 @@ resub = re.sub(r"\@","$","peter@ habeeb@")
 print(resub)
 print(next(regez))
 print(next(regez))
+
+print("weather for two".replace("two", "one"))
+print(math.remainder(2.5,5))
+print(math.cos(90))
+print(random.sample(range(1,100),10))
+print(random.choice([1,2,4,5,6]))
 sys.exit(0)
