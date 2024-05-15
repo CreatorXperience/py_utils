@@ -4,6 +4,8 @@ import sys
 import re
 import math
 import random
+import statistics
+import smtplib
 print(os.getcwd())
 # print(os.chdir("/etc/"))
 print(os.getcwd())
@@ -18,6 +20,8 @@ finally:
 print(sys.argv)
 shutil.copy("./lib.py", "./extlib.py")
 # shutil.move("./java.json", "./sec")
+read=sys.stdin.read(1)
+print(read)
 sys.stderr.write("error occured in lib.py \n")
 
 print(re.findall(r"pe\w+", "peter peter pepper penguin pat zarticly particles"))
@@ -35,4 +39,12 @@ print(math.remainder(2.5,5))
 print(math.cos(90))
 print(random.sample(range(1,100),10))
 print(random.choice([1,2,4,5,6]))
+data = [1,2,3,4,5,6,7,8,1,4,0]
+print(statistics.mean(data))
+print(statistics.median(data))
+print(statistics.mode(data))
+print(statistics.variance(data))
+server = smtplib.SMTP("localhost", 80)
+server.sendmail("peterparker@gmail.com", "spider@nan.com", "Are you a spider man?")
+server.quit()
 sys.exit(0)
