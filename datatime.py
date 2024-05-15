@@ -26,9 +26,9 @@ def make_readable(seconds):
     time= seconds % 3600
     if seconds >=3600 :
         hour = seconds / 3600
-        min=math.floor((seconds % 3600)/60)
+        minute=math.floor((seconds % 3600)/60)
         second = math.floor(seconds % 60)
-        formatted= f"{math.floor(hour)}:{min}:{second}".split(":")
+        formatted= f"{math.floor(hour)}:{minute}:{second}".split(":")
         return ":".join(["0"+x if len(x) == 1 else x for x in formatted ])
     elif seconds >=60 and seconds < 3600 :
         minute=math.floor(seconds / 60)
