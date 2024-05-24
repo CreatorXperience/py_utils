@@ -80,11 +80,16 @@ print(say_whee())
 
 @Decorator.do_twice
 def print_total(greeting):
+    """
+        Print greeting
+    """
     print(greeting)
     return greeting
 
 print(print_total("Hello Motherfucker"))
 
-print(help(Decorator))
+# print(help(Decorator))
+print(print_total.__name__)
+print(help(print_total))
 
 sys.exit()

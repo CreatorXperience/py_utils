@@ -2,6 +2,7 @@
 Function decorators
 
 """
+import functools
 def do_twice(func):
     """
         Executes callback function twice
@@ -13,6 +14,7 @@ def do_twice(func):
         Hello World
 
     """
+    @functools.wraps(func)
     def do_wrapper(*arg,**kwarg):
         """
          do_wrapper calls callback function twice.
