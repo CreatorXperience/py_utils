@@ -1,0 +1,2866 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    
+    <link href="https://files.realpython.com" rel="preconnect">
+
+    <title>Python Best Practices – Real Python</title>
+    <meta name="author" content="Real Python">
+    <meta name="description" content="Learn how to use Python features idiomatically and what sets Python apart from other languages. Discover how Python coding differs from other languages. This will help you write cleaner, more efficient, and more Pythonic code.">
+    <meta name="keywords" content="">
+
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+
+    
+      <link rel="stylesheet" href="/static/realpython.min.f440503857fc.css">
+      <link rel="stylesheet" href="/static/gfonts/font.5ac42994de49.css">
+      <link rel="preload" href="/static/glightbox.min.9b438b29cef1.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/static/glightbox.min.9b438b29cef1.css"></noscript>
+      
+    
+
+    
+
+    
+    
+      <link rel="canonical" href="https://realpython.com/tutorials/best-practices/">
+
+      
+      
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg">
+        <meta property="og:image" content="https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg">
+      
+      <meta name="twitter:creator" content="@realpython">
+      <meta name="twitter:site" content="@realpython">
+      <meta property="og:title" content="Python Best Practices – Real Python">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://realpython.com/tutorials/best-practices/">
+      <meta property="og:description" content="Learn how to use Python features idiomatically and what sets Python apart from other languages. Discover how Python coding differs from other languages. This will help you write cleaner, more efficient, and more Pythonic code.">
+    
+
+    <link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+    <link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+    <link rel="manifest" href="/manifest.json">
+
+    
+
+    
+    
+
+    
+    <script id="icons-data" type="application/json">{"iconsUrl": "/static/icons.654fd44c148d.svg"}</script>
+    <script id="optins-data" type="application/json">{"turnstileSiteKey": "0x4AAAAAAAQQUCLRXBi8NnUh"}</script>
+
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+
+  
+
+  
+
+  
+  
+  ga('set', {
+    dimension1: false,
+    dimension2: false
+  });
+  
+
+  ga('send', 'pageview');
+  
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7L6L5F6Y6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7L6L5F6Y6');
+
+  
+</script>
+
+  </head>
+  <body >
+    
+      
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column  user-select-none">
+  <div class="container flex-row">
+
+    <a class="navbar-brand" href="/">
+      <img src="/static/real-python-logo.893c30edea53.svg" width="165" height="40" class="d-inline-block align-top" alt="Real Python">
+    </a>
+
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarSupportedContent" role="navigation" aria-label="Main Navigation">
+
+      <ul class="navbar-nav mr-2">
+
+        <li class="nav-item">
+          <a class="nav-link rounded" href="/start-here/">Start&nbsp;Here</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link rounded dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#brands--python"/></svg></span> Learn Python
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+            
+<a class="dropdown-item " href="/search?kind=article&kind=course&order=newest" style="color: #ff7e73; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--graduation-cap"/></svg></span>Python Tutorials&nbsp;→<br><small class="text-secondary">In-depth articles and video courses</small></a>
+
+
+            
+<a class="dropdown-item " href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@learning-path"/></svg></span>Learning Paths&nbsp;→<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+
+
+            
+<a class="dropdown-item " href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span>Quizzes&nbsp;→<br><small class="text-secondary">Check your learning progress</small></a>
+
+
+            
+<a class="dropdown-item " href="/tutorials/all/" style="color: #ccc; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>Browse Topics&nbsp;→<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+
+
+            
+<a class="dropdown-item " href="/community/" style="color: #e5c6ab; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--message-smile"/></svg></span>Community Chat&nbsp;→<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+
+
+            
+<a class="dropdown-item " href="/office-hours/" style="color: #e5c6ab; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--users"/></svg></span>Office Hours&nbsp;→<br><small class="text-secondary">Live Q&A calls with Python experts</small></a>
+
+
+            
+<a class="dropdown-item " href="/podcasts/rpp/" style="color: #b8abe5; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@podcast"/></svg></span>Podcast&nbsp;→<br><small class="text-secondary">Hear what’s new in the world of Python</small></a>
+
+
+            
+<a class="dropdown-item " href="/products/books/" style="color: #abe5b1; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--book-heart"/></svg></span>Books&nbsp;→<br><small class="text-secondary">Round out your knowledge and learn offline</small></a>
+
+
+            
+              
+              
+<a class="dropdown-item border-top text-warning" href="/account/join/" style="line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--star"/></svg></span>Unlock All Content&nbsp;→</a>
+
+            
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link rounded dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+            <a class="dropdown-item" href="/learner-stories/">Learner Stories</a>
+            <a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+            <a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+            <a class="dropdown-item" href="/team/">Meet the Team</a>
+            <a class="dropdown-item" href="/write-for-us/">Become a Tutorial Writer</a>
+            <a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+          </div>
+        </li>
+
+      </ul> 
+
+      
+      <div class="d-block d-lg-none"> 
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link rounded" href="/search" title="Search"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--search"/></svg></span> Search</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="d-none d-lg-flex align-items-center mr-2 flex-fill">
+        <form class="form-inline w-100 position-relative" action="/search" method="GET">
+          <a class="js-search-form-submit position-absolute" href="/search" title="Search" aria-hidden="true" tabindex="-1"><span class="icon baseline text-muted pl-2" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--search"/></svg></span></a>
+          <input class="search-autocomplete search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" aria-keyshortcuts="/ Control+J Meta+J" name="q" autocomplete="off">
+          <span class="search-hotkey-indicator position-absolute px-2 border border-input text-input rounded small user-select-none" style="right: 1em;" title="Press / (forward slash) or Ctrl+J to open search" aria-hidden="true">/</span>
+          <input type="hidden" name="_from" value="nav">
+        </form>
+      </div>
+      
+
+      <ul class="navbar-nav ml-auto">
+        
+          <li class="nav-item form-inline mr-2 my-2 ml-3 ml-lg-0">
+            <a class="btn btn-sm btn-primary px-5 px-lg-3" href="/account/join/">Join</a>
+          </li>
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link rounded mx-0 px-lg-2" href="/account/login/?next=%2Ftutorials%2Fbest-practices%2F">Sign&#8209;In</a>
+          </li>
+        
+      </ul>
+
+    
+    </div>
+
+  </div>
+
+  
+
+</nav>
+
+    
+
+    <div class="container main-content">
+      
+
+      
+  <div class="row justify-content-center">
+
+    
+    <aside class="col-md-7 col-lg-4 order-2 d-none d-lg-block">
+      
+        
+
+
+
+
+<div class="card mb-3 bg-secondary">
+  <form class="card-body" action="/optins/process/" method="post">
+    <div class="form-group">
+      <p class="h5 text-muted text-center">— FREE Email Series —</p>
+      <p class="h3 text-center">🐍 Python Tricks 💌</p>
+      <p><img loading="lazy" class="img-fluid rounded" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge"></p>
+    </div>
+    <div class="form-group">
+      <input type="hidden" name="csrfmiddlewaretoken" value="cu1cNAAGMOhALD6jGU6exjkygMGAQLJNsjH9l4CVJifbe0yhl4VDLxebwbtnfw1R">
+      <input type="hidden" name="slug" value="static-python-tricks-sidebar">
+      <input type="email" class="form-control form-control-md" name="email" placeholder="Email&hellip;" required>
+    </div>
+    <button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Get Python Tricks »</button>
+    <p class="mb-0 mt-2 text-muted text-center">🔒 No spam. Unsubscribe any time.</p>
+  </form>
+</div>
+
+
+        
+        
+
+
+<div class="sidebar-module sidebar-module-inset border">
+  <a href="/tutorials/all/" class="badge badge-light text-muted"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>Browse Topics</a>
+
+  <a href="/learning-paths/" class="badge badge-light text-muted"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--map-location-dot"/></svg></span>Guided Learning Paths</a>
+
+  <br>
+
+  <a href="/search?level=basics" class="badge badge-light text-muted"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span> Basics</a>
+
+  <a href="/search?level=intermediate" class="badge badge-light text-muted"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span><span class="icon baseline tight-left" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span> Intermediate</a>
+
+  <a href="/search?level=advanced" class="badge badge-light text-muted"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span><span class="icon baseline tight-left" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span><span class="icon baseline tight-left" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span> Advanced</a>
+
+  <hr class="my-2">
+
+  
+    
+  
+    
+  
+    
+  
+    
+      
+<a href="/tutorials/api/" class="badge badge-light text-muted">api</a>
+
+    
+  
+    
+      
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+    
+  
+    
+      
+<a href="/tutorials/career/" class="badge badge-light text-muted">career</a>
+
+    
+  
+    
+      
+<a href="/tutorials/community/" class="badge badge-light text-muted">community</a>
+
+    
+  
+    
+      
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+
+    
+  
+    
+      
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+    
+  
+    
+      
+<a href="/tutorials/data-structures/" class="badge badge-light text-muted">data-structures</a>
+
+    
+  
+    
+      
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+    
+  
+    
+      
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+
+    
+  
+    
+      
+<a href="/tutorials/django/" class="badge badge-light text-muted">django</a>
+
+    
+  
+    
+      
+<a href="/tutorials/docker/" class="badge badge-light text-muted">docker</a>
+
+    
+  
+    
+      
+<a href="/tutorials/editors/" class="badge badge-light text-muted">editors</a>
+
+    
+  
+    
+      
+<a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+
+    
+  
+    
+      
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+
+    
+  
+    
+      
+<a href="/tutorials/gamedev/" class="badge badge-light text-muted">gamedev</a>
+
+    
+  
+    
+      
+<a href="/tutorials/gui/" class="badge badge-light text-muted">gui</a>
+
+    
+  
+    
+      
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+    
+  
+    
+      
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+    
+  
+    
+      
+<a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+
+    
+  
+    
+      
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+    
+  
+    
+      
+<a href="/tutorials/testing/" class="badge badge-light text-muted">testing</a>
+
+    
+  
+    
+      
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+    
+  
+    
+      
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+
+    
+  
+    
+      
+<a href="/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+
+    
+  
+</div>
+
+
+        
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+  
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:100%;"></div>
+  <div class="rpad" data-unit="1x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+
+
+</div>
+
+
+      
+    </aside>
+
+    <div class="col-md-11 col-lg-8 article ">
+      
+  
+  
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb border-bottom rounded-0">
+    
+     
+      
+        <li class="breadcrumb-item " ><a href="/">Tutorials</a></li>
+      
+     
+      
+        <li class="breadcrumb-item " ><a href="/tutorials/all/">Topics</a></li>
+      
+     
+      
+        <li class="breadcrumb-item active" aria-current="page">Python Best Practices</li>
+      
+    
+  </ol>
+</nav>
+
+
+  <div class="mt-4 mb-5"><h1 id="python-best-practices-for-more-pythonic-code">Python Best Practices for More Pythonic Code<a class="headerlink" href="#python-best-practices-for-more-pythonic-code" title="Permanent link"></a></h1>
+<p>The articles and tutorials in this section contain best practices and other &ldquo;nuggets of wisdom&rdquo; to help your write better, more idiomatic, and more Pythonic code. </p>
+<p>Here you&rsquo;ll find specific resources that will teach you how to idiomatically use the features of Python, what sets it apart, and how writing in Python is different than writing code in another language.</p>
+<p>As a high-level programming language, Python offers a lot of flexibility and freedom to implement thing. This can make it challenging to pick and choose from &ldquo;the right way&rdquo; to do things if there are several viable approaches you can choose from.</p>
+<p>Our goal here is to make you a better&mdash;more effective, more knowledgeable, more practical&mdash;Python developer. You&rsquo;ll get the most out of these article if you already have some knowledge of Python, and you want to get to the next level.</p>
+<div class="alert alert-warning" role="alert">
+<p><strong markdown="1">Free Bonus:</strong> <a href="https://realpython.com/bonus/python-mastery-course/" class="alert-link" data-toggle="modal" data-target="#modal-python-mastery-course" data-focus="false" markdown="1">5 Thoughts On Python Mastery</a>, a free course for Python developers that shows you the roadmap and the mindset you&rsquo;ll need to take your Python skills to the next level.</p>
+</div></div>
+
+  
+  
+
+
+<div class="d-flex mt-3 mb-4">
+  <form class="form-inline col p-0" action="/search" method="GET" id="search-form">
+    <a class="js-search-form-submit position-absolute" href="/search" title="Search" aria-hidden="true" tabindex="-1"><span class="icon baseline text-muted pl-2" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@search"/></svg></span></a>
+    <input class="form-control form-control-lg w-100 " style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search in &ldquo;Python Best Practices&rdquo;&hellip;" aria-label="Search" name="q" autocomplete="off">
+    <input type="hidden" name="_from" value="category_index">
+    <input type="hidden" name="category" value="best-practices">
+    
+  </form>
+  <button class="ml-3 btn btn-primary col-3 d-none d-lg-block" style="max-width: 250px;" type="submit" form="search-form">Search&nbsp;»</button>
+</div>
+
+
+  <div class="row">
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/global-variables-in-python-functions/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Using and Creating Global Variables in Your Python Functions" src="https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/global-variables-in-python-functions/">
+      <h2 class="card-title h4 my-0 py-0">Working With Global Variables in Python Functions</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Apr 30, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-pydantic/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Pydantic: Simplifying Data Validation in Python" src="https://files.realpython.com/media/Pydantic-Showcase_Watermarked.423b9d2e27c6.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pydantic-Showcase_Watermarked.423b9d2e27c6.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pydantic-Showcase_Watermarked.423b9d2e27c6.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pydantic-Showcase_Watermarked.423b9d2e27c6.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pydantic-Showcase_Watermarked.423b9d2e27c6.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-pydantic/">
+      <h2 class="card-title h4 my-0 py-0">Pydantic: Simplifying Data Validation in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Apr 10, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/data-structures/" class="badge badge-light text-muted">data-structures</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/inheritance-composition-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Inheritance and Composition: A Python OOP Guide" src="https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/inheritance-composition-python/">
+      <h2 class="card-title h4 my-0 py-0">Inheritance and Composition: A Python OOP Guide</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Mar 26, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/python-super/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Supercharge Your Classes With Python super()" src="https://files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/python-super/">
+      <h2 class="card-title h4 my-0 py-0">Supercharge Your Classes With Python super()</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Mar 24, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-keyboard-input/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="How to Read User Input From the Keyboard in Python" src="https://files.realpython.com/media/How-to-Read-User-Input-from-the-Keyboard_Watermarked.97e41c4b8491.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Read-User-Input-from-the-Keyboard_Watermarked.97e41c4b8491.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Read-User-Input-from-the-Keyboard_Watermarked.97e41c4b8491.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Read-User-Input-from-the-Keyboard_Watermarked.97e41c4b8491.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Read-User-Input-from-the-Keyboard_Watermarked.97e41c4b8491.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-keyboard-input/">
+      <h2 class="card-title h4 my-0 py-0">How to Read User Input From the Keyboard in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Feb 21, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/dependency-management-python-poetry/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Dependency Management With Python and Poetry" src="https://files.realpython.com/media/Dependency-Management-with-Python-Poetry_Watermarked.65cfb7df07f7.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Dependency-Management-with-Python-Poetry_Watermarked.65cfb7df07f7.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Dependency-Management-with-Python-Poetry_Watermarked.65cfb7df07f7.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Dependency-Management-with-Python-Poetry_Watermarked.65cfb7df07f7.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Dependency-Management-with-Python-Poetry_Watermarked.65cfb7df07f7.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/dependency-management-python-poetry/">
+      <h2 class="card-title h4 my-0 py-0">Dependency Management With Python Poetry</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Feb 19, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+
+        
+          
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-pep8/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="How to Write Beautiful Python Code With PEP 8" src="https://files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-pep8/">
+      <h2 class="card-title h4 my-0 py-0">How to Write Beautiful Python Code With PEP 8</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Feb 07, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-for-data-analysis/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Using Python for Data Analysis" src="https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-for-data-analysis/">
+      <h2 class="card-title h4 my-0 py-0">Using Python for Data Analysis</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jan 17, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-tic-tac-toe-ai/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #aadfe5;" alt="Build a Tic-Tac-Toe Game Engine With an AI Player in Python" src="https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-tic-tac-toe-ai/">
+      <h2 class="card-title h4 my-0 py-0">Create a Tic-Tac-Toe Python Game Engine With an AI Player</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jan 16, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/gamedev/" class="badge badge-light text-muted">gamedev</a>
+
+        
+          
+<a href="/tutorials/gui/" class="badge badge-light text-muted">gui</a>
+
+        
+          
+<a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/inheritance-composition-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Inheritance and Composition: A Python OOP Guide" src="https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/inheritance-composition-python/">
+      <h2 class="card-title h4 my-0 py-0">Inheritance and Composition: A Python OOP Guide</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jan 15, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/python-string-formatting/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Python String Formatting" src="https://files.realpython.com/media/Python-String-Formatting-Tutorial_Watermarked.91a5ecc29d33.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Python-String-Formatting-Tutorial_Watermarked.91a5ecc29d33.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Python-String-Formatting-Tutorial_Watermarked.91a5ecc29d33.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Python-String-Formatting-Tutorial_Watermarked.91a5ecc29d33.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Python-String-Formatting-Tutorial_Watermarked.91a5ecc29d33.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/python-string-formatting/">
+      <h2 class="card-title h4 my-0 py-0">Python String Formatting: Available Tools and Their Features</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Dec 22, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/documenting-python-code/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Documenting Python Code Guide" src="https://files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/documenting-python-code/">
+      <h2 class="card-title h4 my-0 py-0">Documenting Python Code: A Complete Guide</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Dec 18, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/python-property/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="Python&#x27;s property(): Add Managed Attributes to Your Classes" src="https://files.realpython.com/media/Pythons-property_Watermarked.a888a85a9cd8.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pythons-property_Watermarked.a888a85a9cd8.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pythons-property_Watermarked.a888a85a9cd8.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pythons-property_Watermarked.a888a85a9cd8.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pythons-property_Watermarked.a888a85a9cd8.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/python-property/">
+      <h2 class="card-title h4 my-0 py-0">Python&#x27;s property(): Add Managed Attributes to Your Classes</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Dec 18, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/python-use-global-variable-in-function/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Using and Creating Global Variables in Your Python Functions" src="https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/python-use-global-variable-in-function/">
+      <h2 class="card-title h4 my-0 py-0">Using and Creating Global Variables in Your Python Functions</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Dec 18, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/python-main-function/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Defining Main Functions in Python" src="https://files.realpython.com/media/Python-Main-Function_Watermarked.5b31a1de4516.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Python-Main-Function_Watermarked.5b31a1de4516.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Python-Main-Function_Watermarked.5b31a1de4516.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Python-Main-Function_Watermarked.5b31a1de4516.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Python-Main-Function_Watermarked.5b31a1de4516.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/python-main-function/">
+      <h2 class="card-title h4 my-0 py-0">Defining Main Functions in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Dec 18, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-double-underscore/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Single and Double Underscores in Python Names" src="https://files.realpython.com/media/Single-and-a-Double-Leading-Underscore-in-Python-Names_Watermarked.e3bfbf1b525c.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Single-and-a-Double-Leading-Underscore-in-Python-Names_Watermarked.e3bfbf1b525c.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Single-and-a-Double-Leading-Underscore-in-Python-Names_Watermarked.e3bfbf1b525c.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Single-and-a-Double-Leading-Underscore-in-Python-Names_Watermarked.e3bfbf1b525c.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Single-and-a-Double-Leading-Underscore-in-Python-Names_Watermarked.e3bfbf1b525c.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-double-underscore/">
+      <h2 class="card-title h4 my-0 py-0">Single and Double Underscores in Python Names</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Nov 29, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/run-python-scripts/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e6c7ab;" alt="How to Run Your Python Scripts" src="https://files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/run-python-scripts/">
+      <h2 class="card-title h4 my-0 py-0">How to Run Your Python Scripts and Code</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Oct 23, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-catch-multiple-exceptions/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b8aae5;" alt="How to Catch Multiple Exceptions in Python" src="https://files.realpython.com/media/How-to-Catch-Multiple-Exceptions-in-One-Line_Watermarked.39d8dfa7ffc9.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Catch-Multiple-Exceptions-in-One-Line_Watermarked.39d8dfa7ffc9.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Catch-Multiple-Exceptions-in-One-Line_Watermarked.39d8dfa7ffc9.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Catch-Multiple-Exceptions-in-One-Line_Watermarked.39d8dfa7ffc9.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Catch-Multiple-Exceptions-in-One-Line_Watermarked.39d8dfa7ffc9.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-catch-multiple-exceptions/">
+      <h2 class="card-title h4 my-0 py-0">How to Catch Multiple Exceptions in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Sep 20, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/solid-principles-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="SOLID Principles: Improve Object-Oriented Design in Python" src="https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/solid-principles-python/">
+      <h2 class="card-title h4 my-0 py-0">Design and Guidance: Object-Oriented Programming in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Sep 19, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/replace-string-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="How to Replace a String in Python" src="https://files.realpython.com/media/How-to-Replace-Parts-of-a-String-in-Python_Watermarked.a70c83972fa6.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Replace-Parts-of-a-String-in-Python_Watermarked.a70c83972fa6.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Replace-Parts-of-a-String-in-Python_Watermarked.a70c83972fa6.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Replace-Parts-of-a-String-in-Python_Watermarked.a70c83972fa6.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Replace-Parts-of-a-String-in-Python_Watermarked.a70c83972fa6.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/replace-string-python/">
+      <h2 class="card-title h4 my-0 py-0">Replacing a String in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Aug 22, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/if-name-main-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc774;" alt="What Does if __name__ == &quot;__main__&quot; Do in Python?" src="https://files.realpython.com/media/The-Name-Main-Idiom_Watermarked.9d5e12c539b3.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/The-Name-Main-Idiom_Watermarked.9d5e12c539b3.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/The-Name-Main-Idiom_Watermarked.9d5e12c539b3.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/The-Name-Main-Idiom_Watermarked.9d5e12c539b3.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/The-Name-Main-Idiom_Watermarked.9d5e12c539b3.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/if-name-main-python/">
+      <h2 class="card-title h4 my-0 py-0">What Does if __name__ == &quot;__main__&quot; Mean in Python?</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Aug 08, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-reverse-string/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Reverse Strings in Python: reversed(), Slicing, and More" src="https://files.realpython.com/media/Reverse-a-String-in-Python_Watermarked.580a70dab81f.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Reverse-a-String-in-Python_Watermarked.580a70dab81f.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Reverse-a-String-in-Python_Watermarked.580a70dab81f.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Reverse-a-String-in-Python_Watermarked.580a70dab81f.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Reverse-a-String-in-Python_Watermarked.580a70dab81f.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-reverse-string/">
+      <h2 class="card-title h4 my-0 py-0">Reversing Strings in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Aug 01, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-filter-function/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Python&#x27;s filter(): Extract Values From Iterables" src="https://files.realpython.com/media/How-to-Use-Pythons-filter__Watermarked.4234700cc1c3.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Use-Pythons-filter__Watermarked.4234700cc1c3.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Use-Pythons-filter__Watermarked.4234700cc1c3.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Use-Pythons-filter__Watermarked.4234700cc1c3.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Use-Pythons-filter__Watermarked.4234700cc1c3.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-filter-function/">
+      <h2 class="card-title h4 my-0 py-0">Filtering Iterables With Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jul 04, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-rounding/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="How to Round Numbers in Python" src="https://files.realpython.com/media/How-to-Round-Numbers-in-Python_Watermark.6fb8573ce8f5.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Round-Numbers-in-Python_Watermark.6fb8573ce8f5.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Round-Numbers-in-Python_Watermark.6fb8573ce8f5.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Round-Numbers-in-Python_Watermark.6fb8573ce8f5.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Round-Numbers-in-Python_Watermark.6fb8573ce8f5.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-rounding/">
+      <h2 class="card-title h4 my-0 py-0">How to Round Numbers in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jul 03, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/python-enumerate/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="Python enumerate(): Simplify Looping With Counters" src="https://files.realpython.com/media/The-Python-enumerate-Function-Guide_Watermarked.c803ed002afa.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/The-Python-enumerate-Function-Guide_Watermarked.c803ed002afa.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/The-Python-enumerate-Function-Guide_Watermarked.c803ed002afa.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/The-Python-enumerate-Function-Guide_Watermarked.c803ed002afa.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/The-Python-enumerate-Function-Guide_Watermarked.c803ed002afa.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/python-enumerate/">
+      <h2 class="card-title h4 my-0 py-0">Python&#x27;s enumerate()</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jun 23, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-type-self/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Python&#x27;s Self Type: How to Annotate Methods That Return self" src="https://files.realpython.com/media/How-to-Type-Hint-a-Method-With-the-Type-of-the-Enclosing-Class_Watermarked.a2d8d94a2bed.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Type-Hint-a-Method-With-the-Type-of-the-Enclosing-Class_Watermarked.a2d8d94a2bed.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Type-Hint-a-Method-With-the-Type-of-the-Enclosing-Class_Watermarked.a2d8d94a2bed.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Type-Hint-a-Method-With-the-Type-of-the-Enclosing-Class_Watermarked.a2d8d94a2bed.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Type-Hint-a-Method-With-the-Type-of-the-Enclosing-Class_Watermarked.a2d8d94a2bed.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-type-self/">
+      <h2 class="card-title h4 my-0 py-0">Python&#x27;s Self Type: How to Annotate Methods That Return self</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jun 21, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/how-to-make-programming-videos/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="How to Make Engaging Programming Videos" src="https://files.realpython.com/media/How-to-Make-Engaging-Programming-Video-Tutorials_Watermarked.57f36ffadd17.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Make-Engaging-Programming-Video-Tutorials_Watermarked.57f36ffadd17.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Make-Engaging-Programming-Video-Tutorials_Watermarked.57f36ffadd17.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Make-Engaging-Programming-Video-Tutorials_Watermarked.57f36ffadd17.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Make-Engaging-Programming-Video-Tutorials_Watermarked.57f36ffadd17.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/how-to-make-programming-videos/">
+      <h2 class="card-title h4 my-0 py-0">How to Make Engaging Programming Videos</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jun 14, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/chatgpt-coding-mentor-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="ChatGPT: Your Personal Python Coding Mentor" src="https://files.realpython.com/media/ChatGPT-A-Great-Coding-Mentor-for-Learning-Python_Watermarked.3161825ae6b8.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/ChatGPT-A-Great-Coding-Mentor-for-Learning-Python_Watermarked.3161825ae6b8.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/ChatGPT-A-Great-Coding-Mentor-for-Learning-Python_Watermarked.3161825ae6b8.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/ChatGPT-A-Great-Coding-Mentor-for-Learning-Python_Watermarked.3161825ae6b8.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/ChatGPT-A-Great-Coding-Mentor-for-Learning-Python_Watermarked.3161825ae6b8.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/chatgpt-coding-mentor-python/">
+      <h2 class="card-title h4 my-0 py-0">ChatGPT: Your Personal Python Coding Mentor</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-use-global-variable-in-function/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Using and Creating Global Variables in Your Python Functions" src="https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Create-or-Use-a-Global-Variable-in-a-Function_Watermarked.0d7d127a3219.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-use-global-variable-in-function/">
+      <h2 class="card-title h4 my-0 py-0">Using and Creating Global Variables in Your Python Functions</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-string-concatenation/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="Efficient String Concatenation in Python" src="https://files.realpython.com/media/How-to-Concatenate-a-String-in-Python_Watermarked.dfc48160508f.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Concatenate-a-String-in-Python_Watermarked.dfc48160508f.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Concatenate-a-String-in-Python_Watermarked.dfc48160508f.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Concatenate-a-String-in-Python_Watermarked.dfc48160508f.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Concatenate-a-String-in-Python_Watermarked.dfc48160508f.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-string-concatenation/">
+      <h2 class="card-title h4 my-0 py-0">Efficient String Concatenation in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/pypi-publish-python-package/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="How to Publish an Open-Source Python Package to PyPI" src="https://files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/pypi-publish-python-package/">
+      <h2 class="card-title h4 my-0 py-0">Publishing Python Packages to PyPI</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/solid-principles-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="SOLID Principles: Improve Object-Oriented Design in Python" src="https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/The-SOLID-Principles-in-Python-Improve-Your-OOP-Design_Watermarked.a70bbae152e8.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/solid-principles-python/">
+      <h2 class="card-title h4 my-0 py-0">SOLID Principles: Improve Object-Oriented Design in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-assert-statement/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="Python&#x27;s assert: Debug and Test Your Code Like a Pro" src="https://files.realpython.com/media/Pythons-assert-Statement_Watermarked.b22344aad0fa.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pythons-assert-Statement_Watermarked.b22344aad0fa.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pythons-assert-Statement_Watermarked.b22344aad0fa.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pythons-assert-Statement_Watermarked.b22344aad0fa.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pythons-assert-Statement_Watermarked.b22344aad0fa.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-assert-statement/">
+      <h2 class="card-title h4 my-0 py-0">Using Python&#x27;s assert to Debug and Test Your Code</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-string-contains-substring/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="How to Check if a Python String Contains a Substring" src="https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-string-contains-substring/">
+      <h2 class="card-title h4 my-0 py-0">Check if a Python String Contains a Substring</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-del-statement/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Python&#x27;s del: Remove References From Scopes and Containers" src="https://files.realpython.com/media/Pythons-del-Statement-Remove-Items-From-Your-Collections_Watermarked.fd5b504e5f73.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pythons-del-Statement-Remove-Items-From-Your-Collections_Watermarked.fd5b504e5f73.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pythons-del-Statement-Remove-Items-From-Your-Collections_Watermarked.fd5b504e5f73.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pythons-del-Statement-Remove-Items-From-Your-Collections_Watermarked.fd5b504e5f73.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pythons-del-Statement-Remove-Items-From-Your-Collections_Watermarked.fd5b504e5f73.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-del-statement/">
+      <h2 class="card-title h4 my-0 py-0">Python&#x27;s del: Remove References From Scopes and Containers</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-repr-vs-str/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="When Should You Use .__repr__() vs .__str__() in Python?" src="https://files.realpython.com/media/Pythons-.__repr__-vs-.__str__-Whats-the-Difference_Watermarked.a96767464f75.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pythons-.__repr__-vs-.__str__-Whats-the-Difference_Watermarked.a96767464f75.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pythons-.__repr__-vs-.__str__-Whats-the-Difference_Watermarked.a96767464f75.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pythons-.__repr__-vs-.__str__-Whats-the-Difference_Watermarked.a96767464f75.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pythons-.__repr__-vs-.__str__-Whats-the-Difference_Watermarked.a96767464f75.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-repr-vs-str/">
+      <h2 class="card-title h4 my-0 py-0">When Should You Use .__repr__() vs .__str__() in Python?</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-shebang/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Executing Python Scripts With a Shebang" src="https://files.realpython.com/media/Should-I-Put-a-Shebang-At-The-Start-of-My-Python-Script_Watermarked.aad3a85923a2.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Should-I-Put-a-Shebang-At-The-Start-of-My-Python-Script_Watermarked.aad3a85923a2.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Should-I-Put-a-Shebang-At-The-Start-of-My-Python-Script_Watermarked.aad3a85923a2.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Should-I-Put-a-Shebang-At-The-Start-of-My-Python-Script_Watermarked.aad3a85923a2.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Should-I-Put-a-Shebang-At-The-Start-of-My-Python-Script_Watermarked.aad3a85923a2.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-shebang/">
+      <h2 class="card-title h4 my-0 py-0">Executing Python Scripts With a Shebang</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-package-quality/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="How to Evaluate the Quality of Python Packages" src="https://files.realpython.com/media/How-To-Evaluate-PyPI-Packages_Watermarked.22202a1ff09a.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-To-Evaluate-PyPI-Packages_Watermarked.22202a1ff09a.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-To-Evaluate-PyPI-Packages_Watermarked.22202a1ff09a.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-To-Evaluate-PyPI-Packages_Watermarked.22202a1ff09a.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-To-Evaluate-PyPI-Packages_Watermarked.22202a1ff09a.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-package-quality/">
+      <h2 class="card-title h4 my-0 py-0">How to Evaluate the Quality of Python Packages</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-sphinx/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Documenting Python Projects With Sphinx and Read the Docs" src="https://files.realpython.com/media/Documenting-Python-Projects-With-Sphinx-and-Read-The-Docs_Watermarked.483b54b59fe0.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Documenting-Python-Projects-With-Sphinx-and-Read-The-Docs_Watermarked.483b54b59fe0.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Documenting-Python-Projects-With-Sphinx-and-Read-The-Docs_Watermarked.483b54b59fe0.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Documenting-Python-Projects-With-Sphinx-and-Read-The-Docs_Watermarked.483b54b59fe0.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Documenting-Python-Projects-With-Sphinx-and-Read-The-Docs_Watermarked.483b54b59fe0.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-sphinx/">
+      <h2 class="card-title h4 my-0 py-0">Documenting Python Projects With Sphinx and Read the Docs</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/python-string-contains-substring/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="How to Check if a Python String Contains a Substring" src="https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Check-if-a-String-Contains-Another-String_Watermarked.ad5138507ec7.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/python-string-contains-substring/">
+      <h2 class="card-title h4 my-0 py-0">How to Check if a Python String Contains a Substring</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Feb 14, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/pandas-iterate-over-rows/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="How to Iterate Over Rows in pandas, and Why You Shouldn&#x27;t" src="https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/pandas-iterate-over-rows/">
+      <h2 class="card-title h4 my-0 py-0">How to Iterate Over Rows in pandas, and Why You Shouldn&#x27;t</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-assignment-operator/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Python&#x27;s Assignment Operator: Write Robust Assignments" src="https://files.realpython.com/media/Pythons-Assignment-Statements-How-Do-They-Work_Watermarked.0a994e47f63c.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pythons-Assignment-Statements-How-Do-They-Work_Watermarked.0a994e47f63c.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pythons-Assignment-Statements-How-Do-They-Work_Watermarked.0a994e47f63c.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pythons-Assignment-Statements-How-Do-They-Work_Watermarked.0a994e47f63c.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pythons-Assignment-Statements-How-Do-They-Work_Watermarked.0a994e47f63c.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-assignment-operator/">
+      <h2 class="card-title h4 my-0 py-0">Python&#x27;s Assignment Operator: Write Robust Assignments</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-in-operator/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Python&#x27;s &quot;in&quot; and &quot;not in&quot; Operators: Check for Membership" src="https://files.realpython.com/media/Membership-Operators-in-Python-in-and-not-in_Watermarked.f22635242e8d.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Membership-Operators-in-Python-in-and-not-in_Watermarked.f22635242e8d.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Membership-Operators-in-Python-in-and-not-in_Watermarked.f22635242e8d.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Membership-Operators-in-Python-in-and-not-in_Watermarked.f22635242e8d.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Membership-Operators-in-Python-in-and-not-in_Watermarked.f22635242e8d.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-in-operator/">
+      <h2 class="card-title h4 my-0 py-0">Python&#x27;s &quot;in&quot; and &quot;not in&quot; Operators: Check for Membership</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/packaging-with-pyproject-toml/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Everyday Project Packaging With pyproject.toml" src="https://files.realpython.com/media/Everyday-Project-Packaging-with-pyproject.toml_Watermarked.0824108a2f76.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Everyday-Project-Packaging-with-pyproject.toml_Watermarked.0824108a2f76.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Everyday-Project-Packaging-with-pyproject.toml_Watermarked.0824108a2f76.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Everyday-Project-Packaging-with-pyproject.toml_Watermarked.0824108a2f76.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Everyday-Project-Packaging-with-pyproject.toml_Watermarked.0824108a2f76.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/packaging-with-pyproject-toml/">
+      <h2 class="card-title h4 my-0 py-0">Everyday Project Packaging With pyproject.toml</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/refactoring-code-to-get-help/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Refactoring: Prepare Your Code to Get Help" src="https://files.realpython.com/media/Refactoring-Prepare-Your-Code-to-Get-Help_Watermarked.ec4eeb8c1b36.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Refactoring-Prepare-Your-Code-to-Get-Help_Watermarked.ec4eeb8c1b36.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Refactoring-Prepare-Your-Code-to-Get-Help_Watermarked.ec4eeb8c1b36.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Refactoring-Prepare-Your-Code-to-Get-Help_Watermarked.ec4eeb8c1b36.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Refactoring-Prepare-Your-Code-to-Get-Help_Watermarked.ec4eeb8c1b36.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/refactoring-code-to-get-help/">
+      <h2 class="card-title h4 my-0 py-0">Refactoring: Prepare Your Code to Get Help</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-bugfix-version/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Should You Update to the Latest Python Bugfix Version?" src="https://files.realpython.com/media/Should-You-Update-to-the-Latest-Bugfix-Version_Watermarked.357cf2848db3.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Should-You-Update-to-the-Latest-Bugfix-Version_Watermarked.357cf2848db3.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Should-You-Update-to-the-Latest-Bugfix-Version_Watermarked.357cf2848db3.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Should-You-Update-to-the-Latest-Bugfix-Version_Watermarked.357cf2848db3.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Should-You-Update-to-the-Latest-Bugfix-Version_Watermarked.357cf2848db3.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-bugfix-version/">
+      <h2 class="card-title h4 my-0 py-0">Should You Update to the Latest Python Bugfix Version?</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/tic-tac-toe-ai-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #aadfe5;" alt="Build a Tic-Tac-Toe Game Engine With an AI Player in Python" src="https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/tic-tac-toe-ai-python/">
+      <h2 class="card-title h4 my-0 py-0">Build a Tic-Tac-Toe Game Engine With an AI Player in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/gamedev/" class="badge badge-light text-muted">gamedev</a>
+
+        
+          
+<a href="/tutorials/gui/" class="badge badge-light text-muted">gui</a>
+
+        
+          
+<a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/add-python-to-path/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="How to Add Python to PATH" src="https://files.realpython.com/media/How-to-Add-Python-to-PATH_Watermarked.567376e2aed0.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Add-Python-to-PATH_Watermarked.567376e2aed0.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Add-Python-to-PATH_Watermarked.567376e2aed0.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Add-Python-to-PATH_Watermarked.567376e2aed0.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Add-Python-to-PATH_Watermarked.567376e2aed0.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/add-python-to-path/">
+      <h2 class="card-title h4 my-0 py-0">How to Add Python to PATH</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+  
+    <nav aria-label="Page Navigation">
+      <ul class="pagination pagination-lg justify-content-center">
+        
+          <li class="page-item disabled"><a class="page-link">«</a></li>
+        
+        
+          
+            <li class="page-item active"><a class="page-link">1</a></li>
+          
+        
+          
+            <li class="page-item"><a class="page-link" href="/tutorials/best-practices/page/2/">2</a></li>
+          
+        
+          
+            <li class="page-item"><a class="page-link" href="/tutorials/best-practices/page/3/">3</a></li>
+          
+        
+        
+          <li class="page-item"><a class="page-link" href="/tutorials/best-practices/page/2/">»</a></li>
+        
+      </ul>
+    </nav>
+  
+
+  <div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+    
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:25%;"></div>
+  <div class="rpad" data-unit="4x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+    </div>
+
+    
+    
+
+    
+    
+      
+        
+          <div class="modal fade" id="modal-python-mastery-course" tabindex="-1" aria-labelledby="modal-python-mastery-course-title" aria-describedby="modal-python-mastery-course-desc">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header bg-light pt-3 pb-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="progress" style="height: .5rem;" aria-hidden="true">
+                <div class="progress-bar progress-bar-striped progress-bar-animated w-75" role="progressbar"></div>
+              </div>
+            </div>
+            <div class="col-12">
+              <p id="modal-python-mastery-course-desc" class="text-muted text-center mb-0 mt-2">Almost there! Complete this form and click the button below to gain instant&nbsp;access:</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body m-4">
+        <div class="container-fluid">
+          <div class="row align-items-center text-center">
+            <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+              
+              
+                <img loading="lazy" class="img-fluid rounded" src="https://files.realpython.com/media/python-logo.8eb72ea6927b.png" width="1000" height="1000" srcset="/cdn-cgi/image/width=250,format=auto/https://files.realpython.com/media/python-logo.8eb72ea6927b.png 250w, /cdn-cgi/image/width=333,format=auto/https://files.realpython.com/media/python-logo.8eb72ea6927b.png 333w, /cdn-cgi/image/width=500,format=auto/https://files.realpython.com/media/python-logo.8eb72ea6927b.png 500w, /cdn-cgi/image/width=1000,format=auto/https://files.realpython.com/media/python-logo.8eb72ea6927b.png 1000w" sizes="(min-width: 1000px) 207px, (min-width: 580px) 382px, calc(100vw - 134px)" alt="Python Logo">
+              
+            </div>
+            <div class="col">
+              <p id="modal-python-mastery-course-title" class="text-center h3 mb-4">5 Thoughts On Python Mastery</p>
+
+              <form class="col-12" action="/optins/process/" method="post">
+                <input type="hidden" name="csrfmiddlewaretoken" value="cu1cNAAGMOhALD6jGU6exjkygMGAQLJNsjH9l4CVJifbe0yhl4VDLxebwbtnfw1R">
+                <input type="hidden" name="slug" value="python-mastery-course">
+                <input type="hidden" name="source_path" value="/tutorials/best-practices/"> 
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control" placeholder="Email Address" required autofocus>
+                </div>
+                <button name="submit" type="submit" class="btn btn-primary btn-block text-wrap">Start the Class »</button>
+                <p class="mb-0 mt-2 text-muted text-center"><small>🔒 No spam. We take your privacy seriously.</small></p>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+        
+      
+    
+
+    
+      
+<footer class="footer">
+  <div class="container">
+    
+
+    <p class="text-center text-muted w-75 mx-auto">© 2012–2024 Real&nbsp;Python&nbsp;⋅ <a href="/newsletter/">Newsletter</a>&nbsp;⋅ <a href="/podcasts/rpp/">Podcast</a>&nbsp;⋅ <a href="https://www.youtube.com/realpython">YouTube</a>&nbsp;⋅ <a href="https://twitter.com/realpython">Twitter</a>&nbsp;⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a>&nbsp;⋅ <a href="https://www.instagram.com/realpython/">Instagram</a>&nbsp;⋅ <a href="/">Python&nbsp;Tutorials</a>&nbsp;⋅ <a href="/search">Search</a>&nbsp;⋅ <a href="/privacy-policy/">Privacy Policy</a>&nbsp;⋅ <a href="/energy-policy/">Energy Policy</a>&nbsp;⋅ <a href="/sponsorships/">Advertise</a>&nbsp;⋅ <a href="/contact/">Contact</a><br><span class="icon baseline text-color-red" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--heart"/></svg></span> Happy Pythoning!</p>
+  </div>
+</footer>
+
+    
+
+    
+
+    
+    <script>
+      (function() {
+        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+        if (!isAndroid) {
+          return;
+        }
+
+        var styles = `
+        @font-face {
+          font-family: 'DejaVu Sans Mono';
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+          src: url('/static/mfonts/dejavu-sans-mono.33f00225f915.woff2') format('woff2'),
+               url('/static/mfonts/dejavu-sans-mono.0da77d3739f3.woff') format('woff'),
+               url('/static/mfonts/dejavu-sans-mono.c2356fc49835.ttf') format('truetype');
+        }
+        code, kbd, pre, samp {
+          font-family: 'DejaVu Sans Mono', monospace;
+        }
+        `
+
+        var styleSheet = document.createElement("style")
+        styleSheet.type = "text/css"
+        styleSheet.innerText = styles
+        document.head.appendChild(styleSheet)
+      })();
+    </script>
+
+    
+    
+    <script src="/static/jquery.min.2c872dbe60f4.js"></script>
+    <script src="/static/popper.min.47dc3aaf2942.js"></script>
+    <script src="/static/bootstrap.min.a3b2689424c3.js"></script>
+
+    
+    
+
+    <script>
+    (function() {
+      document.querySelectorAll(".js-search-form-submit").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.currentTarget.parentElement.submit();
+        })
+      });
+    })();
+    </script>
+    <script src="/static/frontend/reader/codeblock.5c8399b698d9.js" async></script>
+    <script src="/static/frontend/reader/lightbox.5387b5824229.js" async></script>
+    <script src="/static/frontend/reader/platforms-ui.b11202dc6079.js" async></script>
+    
+
+    
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+<script>window.rp_prop_id = '58946116052';</script>
+<script src="https://srv.realpython.net/tag.js" async></script>
+
+
+
+
+    <script src="/static/frontend/optins/optins.9b3f3d317bfa.js" async></script>
+    <script src="/static/frontend/search/autocomplete.eb8dcedc5710.js" async></script>
+
+    
+
+    
+
+    
+
+    
+
+    
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2220911568135371');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2220911568135371&ev=PageView&noscript=1"
+/></noscript>
+
+
+    
+
+    
+
+  <script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'888dc20bbfdf7309',t:'MTcxNjU1ODY2MC42NzgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

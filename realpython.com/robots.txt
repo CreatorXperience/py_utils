@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: 
+Disallow: /search
+Disallow: *?q=*
+Disallow: */api/v*
+Disallow: /account/*/login/
+Disallow: /feedback/*
+Disallow: /practice/*
+Disallow: /preview/*
+
+Sitemap: https://realpython.com/sitemap.xml

@@ -1,0 +1,2806 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    
+    <link href="https://files.realpython.com" rel="preconnect">
+
+    <title>Python Data Science – Real Python</title>
+    <meta name="author" content="Real Python">
+    <meta name="description" content="Explore all Python data science tutorials. Learn how to analyze and visualize data using Python. With these skills, you can derive insights from large data sets and make data-driven decisions.">
+    <meta name="keywords" content="">
+
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+
+    
+      <link rel="stylesheet" href="/static/realpython.min.f440503857fc.css">
+      <link rel="stylesheet" href="/static/gfonts/font.5ac42994de49.css">
+      <link rel="preload" href="/static/glightbox.min.9b438b29cef1.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/static/glightbox.min.9b438b29cef1.css"></noscript>
+      
+    
+
+    
+
+    
+    
+      <link rel="canonical" href="https://realpython.com/tutorials/data-science/">
+
+      
+      
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg">
+        <meta property="og:image" content="https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg">
+      
+      <meta name="twitter:creator" content="@realpython">
+      <meta name="twitter:site" content="@realpython">
+      <meta property="og:title" content="Python Data Science – Real Python">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://realpython.com/tutorials/data-science/">
+      <meta property="og:description" content="Explore all Python data science tutorials. Learn how to analyze and visualize data using Python. With these skills, you can derive insights from large data sets and make data-driven decisions.">
+    
+
+    <link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+    <link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+    <link rel="manifest" href="/manifest.json">
+
+    
+
+    
+    
+
+    
+    <script id="icons-data" type="application/json">{"iconsUrl": "/static/icons.654fd44c148d.svg"}</script>
+    <script id="optins-data" type="application/json">{"turnstileSiteKey": "0x4AAAAAAAQQUCLRXBi8NnUh"}</script>
+
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+
+  
+
+  
+
+  
+  
+  ga('set', {
+    dimension1: false,
+    dimension2: false
+  });
+  
+
+  ga('send', 'pageview');
+  
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7L6L5F6Y6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7L6L5F6Y6');
+
+  
+</script>
+
+  </head>
+  <body >
+    
+      
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column  user-select-none">
+  <div class="container flex-row">
+
+    <a class="navbar-brand" href="/">
+      <img src="/static/real-python-logo.893c30edea53.svg" width="165" height="40" class="d-inline-block align-top" alt="Real Python">
+    </a>
+
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarSupportedContent" role="navigation" aria-label="Main Navigation">
+
+      <ul class="navbar-nav mr-2">
+
+        <li class="nav-item">
+          <a class="nav-link rounded" href="/start-here/">Start&nbsp;Here</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link rounded dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#brands--python"/></svg></span> Learn Python
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+            
+<a class="dropdown-item " href="/search?kind=article&kind=course&order=newest" style="color: #ff7e73; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--graduation-cap"/></svg></span>Python Tutorials&nbsp;→<br><small class="text-secondary">In-depth articles and video courses</small></a>
+
+
+            
+<a class="dropdown-item " href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@learning-path"/></svg></span>Learning Paths&nbsp;→<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+
+
+            
+<a class="dropdown-item " href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span>Quizzes&nbsp;→<br><small class="text-secondary">Check your learning progress</small></a>
+
+
+            
+<a class="dropdown-item " href="/tutorials/all/" style="color: #ccc; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>Browse Topics&nbsp;→<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+
+
+            
+<a class="dropdown-item " href="/community/" style="color: #e5c6ab; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--message-smile"/></svg></span>Community Chat&nbsp;→<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+
+
+            
+<a class="dropdown-item " href="/office-hours/" style="color: #e5c6ab; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--users"/></svg></span>Office Hours&nbsp;→<br><small class="text-secondary">Live Q&A calls with Python experts</small></a>
+
+
+            
+<a class="dropdown-item " href="/podcasts/rpp/" style="color: #b8abe5; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@podcast"/></svg></span>Podcast&nbsp;→<br><small class="text-secondary">Hear what’s new in the world of Python</small></a>
+
+
+            
+<a class="dropdown-item " href="/products/books/" style="color: #abe5b1; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--book-heart"/></svg></span>Books&nbsp;→<br><small class="text-secondary">Round out your knowledge and learn offline</small></a>
+
+
+            
+              
+              
+<a class="dropdown-item border-top text-warning" href="/account/join/" style="line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--star"/></svg></span>Unlock All Content&nbsp;→</a>
+
+            
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link rounded dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+            <a class="dropdown-item" href="/learner-stories/">Learner Stories</a>
+            <a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+            <a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+            <a class="dropdown-item" href="/team/">Meet the Team</a>
+            <a class="dropdown-item" href="/write-for-us/">Become a Tutorial Writer</a>
+            <a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+          </div>
+        </li>
+
+      </ul> 
+
+      
+      <div class="d-block d-lg-none"> 
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link rounded" href="/search" title="Search"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--search"/></svg></span> Search</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="d-none d-lg-flex align-items-center mr-2 flex-fill">
+        <form class="form-inline w-100 position-relative" action="/search" method="GET">
+          <a class="js-search-form-submit position-absolute" href="/search" title="Search" aria-hidden="true" tabindex="-1"><span class="icon baseline text-muted pl-2" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--search"/></svg></span></a>
+          <input class="search-autocomplete search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" aria-keyshortcuts="/ Control+J Meta+J" name="q" autocomplete="off">
+          <span class="search-hotkey-indicator position-absolute px-2 border border-input text-input rounded small user-select-none" style="right: 1em;" title="Press / (forward slash) or Ctrl+J to open search" aria-hidden="true">/</span>
+          <input type="hidden" name="_from" value="nav">
+        </form>
+      </div>
+      
+
+      <ul class="navbar-nav ml-auto">
+        
+          <li class="nav-item form-inline mr-2 my-2 ml-3 ml-lg-0">
+            <a class="btn btn-sm btn-primary px-5 px-lg-3" href="/account/join/">Join</a>
+          </li>
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link rounded mx-0 px-lg-2" href="/account/login/?next=%2Ftutorials%2Fdata-science%2F">Sign&#8209;In</a>
+          </li>
+        
+      </ul>
+
+    
+    </div>
+
+  </div>
+
+  
+
+</nav>
+
+    
+
+    <div class="container main-content">
+      
+
+      
+  <div class="row justify-content-center">
+
+    
+    <aside class="col-md-7 col-lg-4 order-2 d-none d-lg-block">
+      
+        
+
+
+
+
+<div class="card mb-3 bg-secondary">
+  <form class="card-body" action="/optins/process/" method="post">
+    <div class="form-group">
+      <p class="h5 text-muted text-center">— FREE Email Series —</p>
+      <p class="h3 text-center">🐍 Python Tricks 💌</p>
+      <p><img loading="lazy" class="img-fluid rounded" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge"></p>
+    </div>
+    <div class="form-group">
+      <input type="hidden" name="csrfmiddlewaretoken" value="liqcpG9xZINr0bAUmL8D7SDQC0pY8iLcB769XabMWcL2ty2S1VX2l6xtSpcLx33g">
+      <input type="hidden" name="slug" value="static-python-tricks-sidebar">
+      <input type="email" class="form-control form-control-md" name="email" placeholder="Email&hellip;" required>
+    </div>
+    <button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Get Python Tricks »</button>
+    <p class="mb-0 mt-2 text-muted text-center">🔒 No spam. Unsubscribe any time.</p>
+  </form>
+</div>
+
+
+        
+        
+
+
+<div class="sidebar-module sidebar-module-inset border">
+  <a href="/tutorials/all/" class="badge badge-light text-muted"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>Browse Topics</a>
+
+  <a href="/learning-paths/" class="badge badge-light text-muted"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--map-location-dot"/></svg></span>Guided Learning Paths</a>
+
+  <br>
+
+  <a href="/search?level=basics" class="badge badge-light text-muted"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span> Basics</a>
+
+  <a href="/search?level=intermediate" class="badge badge-light text-muted"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span><span class="icon baseline tight-left" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span> Intermediate</a>
+
+  <a href="/search?level=advanced" class="badge badge-light text-muted"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span><span class="icon baseline tight-left" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span><span class="icon baseline tight-left" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@level"/></svg></span> Advanced</a>
+
+  <hr class="my-2">
+
+  
+    
+  
+    
+  
+    
+  
+    
+      
+<a href="/tutorials/api/" class="badge badge-light text-muted">api</a>
+
+    
+  
+    
+      
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+    
+  
+    
+      
+<a href="/tutorials/career/" class="badge badge-light text-muted">career</a>
+
+    
+  
+    
+      
+<a href="/tutorials/community/" class="badge badge-light text-muted">community</a>
+
+    
+  
+    
+      
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+
+    
+  
+    
+      
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+    
+  
+    
+      
+<a href="/tutorials/data-structures/" class="badge badge-light text-muted">data-structures</a>
+
+    
+  
+    
+      
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+    
+  
+    
+      
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+
+    
+  
+    
+      
+<a href="/tutorials/django/" class="badge badge-light text-muted">django</a>
+
+    
+  
+    
+      
+<a href="/tutorials/docker/" class="badge badge-light text-muted">docker</a>
+
+    
+  
+    
+      
+<a href="/tutorials/editors/" class="badge badge-light text-muted">editors</a>
+
+    
+  
+    
+      
+<a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+
+    
+  
+    
+      
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+
+    
+  
+    
+      
+<a href="/tutorials/gamedev/" class="badge badge-light text-muted">gamedev</a>
+
+    
+  
+    
+      
+<a href="/tutorials/gui/" class="badge badge-light text-muted">gui</a>
+
+    
+  
+    
+      
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+    
+  
+    
+      
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+    
+  
+    
+      
+<a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+
+    
+  
+    
+      
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+    
+  
+    
+      
+<a href="/tutorials/testing/" class="badge badge-light text-muted">testing</a>
+
+    
+  
+    
+      
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+    
+  
+    
+      
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+
+    
+  
+    
+      
+<a href="/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+
+    
+  
+</div>
+
+
+        
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+  
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:100%;"></div>
+  <div class="rpad" data-unit="1x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+
+
+</div>
+
+
+      
+    </aside>
+
+    <div class="col-md-11 col-lg-8 article ">
+      
+  
+  
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb border-bottom rounded-0">
+    
+     
+      
+        <li class="breadcrumb-item " ><a href="/">Tutorials</a></li>
+      
+     
+      
+        <li class="breadcrumb-item " ><a href="/tutorials/all/">Topics</a></li>
+      
+     
+      
+        <li class="breadcrumb-item active" aria-current="page">Python Data Science</li>
+      
+    
+  </ol>
+</nav>
+
+
+  <div class="mt-4 mb-5"><h1 id="python-data-science-tutorials">Python Data Science Tutorials<a class="headerlink" href="#python-data-science-tutorials" title="Permanent link"></a></h1>
+<p>&ldquo;Data science&rdquo; is just about as broad of a term as they come.  It may be easiest to describe what it is by listing its more concrete components:</p>
+<p><strong>Data exploration &amp; analysis</strong>.</p>
+<ul>
+<li>Included here: Pandas; NumPy; SciPy; a helping hand from Python&rsquo;s Standard Library.</li>
+</ul>
+<p><strong>Data visualization</strong>.  A pretty self-explanatory name.  Taking data and turning it into something colorful.</p>
+<ul>
+<li>Included here: Matplotlib; Seaborn; Datashader; <a href="https://matplotlib.org/thirdpartypackages/index.html">others</a>.</li>
+</ul>
+<p><strong>Classical machine learning</strong>.  Conceptually, we could define this as any supervised or unsupervised learning task that is not deep learning (see below).  Scikit-learn is far-and-away the go-to tool for implementing classification, regression, clustering, and dimensionality reduction, while StatsModels is less actively developed but still has a number of useful features.</p>
+<ul>
+<li>Included here: Scikit-Learn, StatsModels.</li>
+</ul>
+<p><strong>Deep learning</strong>.  This is a subset of machine learning that is seeing a renaissance, and is commonly implemented with Keras, among other libraries.  It has seen monumental improvements over the last ~5 years, such as <a href="https://en.wikipedia.org/wiki/AlexNet">AlexNet</a> in 2012, which was the first design to incorporate consecutive convolutional layers.</p>
+<ul>
+<li>Included here: Keras, TensorFlow, and a whole host of others.</li>
+</ul>
+<p><strong>Data storage and big data frameworks</strong>.  Big data is best defined as data that is either literally too large to reside on a single machine, or can&rsquo;t be processed in the absence of a distributed environment.  The Python bindings to Apache technologies play heavily here.</p>
+<ul>
+<li>Apache Spark; Apache Hadoop; HDFS; Dask; h5py/pytables.</li>
+</ul>
+<p><strong>Odds and ends</strong>.  Includes subtopics such as natural language processing, and image manipulation with libraries such as OpenCV.</p>
+<ul>
+<li>Included here: nltk; Spacy; OpenCV/cv2; scikit-image; Cython.</li>
+</ul>
+<h2 id="all-data-science-tutorials-at-real-python">All data science tutorials at Real Python:<a class="headerlink" href="#all-data-science-tutorials-at-real-python" title="Permanent link"></a></h2></div>
+
+  
+  
+
+
+<div class="d-flex mt-3 mb-4">
+  <form class="form-inline col p-0" action="/search" method="GET" id="search-form">
+    <a class="js-search-form-submit position-absolute" href="/search" title="Search" aria-hidden="true" tabindex="-1"><span class="icon baseline text-muted pl-2" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@search"/></svg></span></a>
+    <input class="form-control form-control-lg w-100 " style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search in &ldquo;Python Data Science&rdquo;&hellip;" aria-label="Search" name="q" autocomplete="off">
+    <input type="hidden" name="_from" value="category_index">
+    <input type="hidden" name="category" value="data-science">
+    
+  </form>
+  <button class="ml-3 btn btn-primary col-3 d-none d-lg-block" style="max-width: 250px;" type="submit" form="search-form">Search&nbsp;»</button>
+</div>
+
+
+  <div class="row">
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/how-to-pandas-pivot-table/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="How to Create a Pivot Table With pandas" src="https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/how-to-pandas-pivot-table/">
+      <h2 class="card-title h4 my-0 py-0">How to Create Pivot Tables With pandas</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+        <a href="/account/join/" class="mr-2"><span class="icon baseline text-muted" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--star"/></svg></span></a>
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/creating-pivot-tables-with-pandas/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="How to Create a Pivot Table With pandas" src="https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pandas-Pivot-Table-Aggregate-Data-in-Python_Watermarked.b50d3e60cb29.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/creating-pivot-tables-with-pandas/">
+      <h2 class="card-title h4 my-0 py-0">How to Create Pivot Tables With pandas</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">May 24, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/pytorch-vs-tensorflow/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="PyTorch vs Tensorflow for Your Python Deep Learning Project" src="https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/pytorch-vs-tensorflow/">
+      <h2 class="card-title h4 my-0 py-0">PyTorch vs TensorFlow for Your Python Deep Learning Project</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">May 08, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/flatten-list-of-lists/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #aae4b1;" alt="How to Flatten a List of Lists in Python" src="https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/flatten-list-of-lists/">
+      <h2 class="card-title h4 my-0 py-0">Flattening a List of Lists in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">May 07, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/deep-learning-pytorch-tensorflow/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="PyTorch vs Tensorflow for Your Python Deep Learning Project" src="https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pytorch-vs-Tensorflow_Watermarked.9975d1999917.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/deep-learning-pytorch-tensorflow/">
+      <h2 class="card-title h4 my-0 py-0">Python Deep Learning: PyTorch vs Tensorflow</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Apr 02, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/practical-prompt-engineering/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Prompt Engineering: A Practical Example" src="https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/practical-prompt-engineering/">
+      <h2 class="card-title h4 my-0 py-0">Prompt Engineering: A Practical Example</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Mar 25, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/practical-prompt-engineering/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Prompt Engineering: A Practical Example" src="https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Prompt-Engineering-A-Practical-Example_Watermarked.7106fe3647aa.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/practical-prompt-engineering/">
+      <h2 class="card-title h4 my-0 py-0">Practical Prompt Engineering</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Mar 20, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-seaborn/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Visualizing Data in Python With Seaborn" src="https://files.realpython.com/media/Showcase-Seaborn_Watermarked.9cd1c4edfb54.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Showcase-Seaborn_Watermarked.9cd1c4edfb54.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Showcase-Seaborn_Watermarked.9cd1c4edfb54.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Showcase-Seaborn_Watermarked.9cd1c4edfb54.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Showcase-Seaborn_Watermarked.9cd1c4edfb54.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-seaborn/">
+      <h2 class="card-title h4 my-0 py-0">Visualizing Data in Python With Seaborn</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Mar 13, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/build-llm-rag-chatbot-with-langchain/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Build an LLM RAG Chatbot With LangChain" src="https://files.realpython.com/media/Build-a-LLM-Application-with-LangChain_Watermarked.b9d023202ad2.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Build-a-LLM-Application-with-LangChain_Watermarked.b9d023202ad2.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Build-a-LLM-Application-with-LangChain_Watermarked.b9d023202ad2.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Build-a-LLM-Application-with-LangChain_Watermarked.b9d023202ad2.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Build-a-LLM-Application-with-LangChain_Watermarked.b9d023202ad2.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/build-llm-rag-chatbot-with-langchain/">
+      <h2 class="card-title h4 my-0 py-0">Build an LLM RAG Chatbot With LangChain</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Mar 06, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-for-data-analysis/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Using Python for Data Analysis" src="https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Data-Science-for-Beginners-Python-for-Data-Analysis_Watermarked.db873f10250a.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-for-data-analysis/">
+      <h2 class="card-title h4 my-0 py-0">Using Python for Data Analysis</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jan 17, 2024</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-serialize-data/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Serialize Your Data With Python" src="https://files.realpython.com/media/Various-Ways-to-Serialize-Python-Objects_Watermarked.75be0426bd30.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Various-Ways-to-Serialize-Python-Objects_Watermarked.75be0426bd30.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Various-Ways-to-Serialize-Python-Objects_Watermarked.75be0426bd30.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Various-Ways-to-Serialize-Python-Objects_Watermarked.75be0426bd30.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Various-Ways-to-Serialize-Python-Objects_Watermarked.75be0426bd30.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-serialize-data/">
+      <h2 class="card-title h4 my-0 py-0">Serialize Your Data With Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Dec 04, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/chromadb-vector-database/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #aae4b1;" alt="Embeddings and Vector Databases With ChromaDB" src="https://files.realpython.com/media/Embeddings-and-Vector-Databases-with-ChromaDB_Watermarked.646a2e85613a.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Embeddings-and-Vector-Databases-with-ChromaDB_Watermarked.646a2e85613a.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Embeddings-and-Vector-Databases-with-ChromaDB_Watermarked.646a2e85613a.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Embeddings-and-Vector-Databases-with-ChromaDB_Watermarked.646a2e85613a.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Embeddings-and-Vector-Databases-with-ChromaDB_Watermarked.646a2e85613a.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/chromadb-vector-database/">
+      <h2 class="card-title h4 my-0 py-0">Embeddings and Vector Databases With ChromaDB</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Nov 15, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/using-jupyterlab/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc774;" alt="JupyterLab for an Enhanced Notebook Experience" src="https://files.realpython.com/media/Jupyterlab-Tutorial_Watermarked.e68ba3554953.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Jupyterlab-Tutorial_Watermarked.e68ba3554953.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Jupyterlab-Tutorial_Watermarked.e68ba3554953.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Jupyterlab-Tutorial_Watermarked.e68ba3554953.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Jupyterlab-Tutorial_Watermarked.e68ba3554953.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/using-jupyterlab/">
+      <h2 class="card-title h4 my-0 py-0">JupyterLab for an Enhanced Notebook Experience</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Nov 13, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/editors/" class="badge badge-light text-muted">editors</a>
+
+        
+          
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/polars-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b8aae5;" alt="Python Polars: A Lightning-Fast DataFrame Library" src="https://files.realpython.com/media/Showcase-Polars_Watermarked.4e25d4f6c9a7.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Showcase-Polars_Watermarked.4e25d4f6c9a7.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Showcase-Polars_Watermarked.4e25d4f6c9a7.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Showcase-Polars_Watermarked.4e25d4f6c9a7.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Showcase-Polars_Watermarked.4e25d4f6c9a7.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/polars-python/">
+      <h2 class="card-title h4 my-0 py-0">Python Polars: A Lightning-Fast DataFrame Library</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Aug 16, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-folium-web-maps-from-data/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Python Folium: Create Web Maps From Your Data" src="https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-folium-web-maps-from-data/">
+      <h2 class="card-title h4 my-0 py-0">Creating Web Maps From Your Data With Python Folium</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jul 18, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-flatten-list/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #aae4b1;" alt="How to Flatten a List of Lists in Python" src="https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Flatten-a-List-of-Lists_Watermarked.2f9407737589.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-flatten-list/">
+      <h2 class="card-title h4 my-0 py-0">How to Flatten a List of Lists in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jun 26, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/numpy-random-number-generator/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="Using the NumPy Random Number Generator" src="https://files.realpython.com/media/NumPy-Random-Number-Generator_Watermarked.f87659b8e3ee.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/NumPy-Random-Number-Generator_Watermarked.f87659b8e3ee.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/NumPy-Random-Number-Generator_Watermarked.f87659b8e3ee.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/NumPy-Random-Number-Generator_Watermarked.f87659b8e3ee.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/NumPy-Random-Number-Generator_Watermarked.f87659b8e3ee.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/numpy-random-number-generator/">
+      <h2 class="card-title h4 my-0 py-0">Using the NumPy Random Number Generator</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">Jun 05, 2023</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+        
+          
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/knn-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="The k-Nearest Neighbors (kNN) Algorithm in Python" src="https://files.realpython.com/media/k-Nearest-Neighbors-in-Python-Guide_Watermarked.a2475a6087a3.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/k-Nearest-Neighbors-in-Python-Guide_Watermarked.a2475a6087a3.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/k-Nearest-Neighbors-in-Python-Guide_Watermarked.a2475a6087a3.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/k-Nearest-Neighbors-in-Python-Guide_Watermarked.a2475a6087a3.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/k-Nearest-Neighbors-in-Python-Guide_Watermarked.a2475a6087a3.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/knn-python/">
+      <h2 class="card-title h4 my-0 py-0">Using k-Nearest Neighbors (kNN) in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-dash/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Develop Data Visualization Interfaces in Python With Dash" src="https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-dash/">
+      <h2 class="card-title h4 my-0 py-0">Develop Data Visualization Interfaces in Python With Dash</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/pandas-iterate-over-rows/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="How to Iterate Over Rows in pandas, and Why You Shouldn&#x27;t" src="https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Iterate-Over-Rows-in-Pandas-DataFrame_Watermarked.71ba8f5cb95a.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/pandas-iterate-over-rows/">
+      <h2 class="card-title h4 my-0 py-0">How to Iterate Over Rows in pandas, and Why You Shouldn&#x27;t</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-linear-algebra/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="Linear Algebra in Python: Matrix Inverses and Least Squares" src="https://files.realpython.com/media/Linear-Algebra-in-Python-Matrix-Inverses-and-Least-Squares_Watermarked.cb9987c11b27.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Linear-Algebra-in-Python-Matrix-Inverses-and-Least-Squares_Watermarked.cb9987c11b27.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Linear-Algebra-in-Python-Matrix-Inverses-and-Least-Squares_Watermarked.cb9987c11b27.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Linear-Algebra-in-Python-Matrix-Inverses-and-Least-Squares_Watermarked.cb9987c11b27.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Linear-Algebra-in-Python-Matrix-Inverses-and-Least-Squares_Watermarked.cb9987c11b27.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-linear-algebra/">
+      <h2 class="card-title h4 my-0 py-0">Linear Algebra in Python: Matrix Inverses and Least Squares</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-scipy-linalg/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Working With Linear Systems in Python With scipy.linalg" src="https://files.realpython.com/media/Linear-Algebra-With-SciPy-How-to-Use-scipy.linalg_Watermarked.76f069fd1775.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Linear-Algebra-With-SciPy-How-to-Use-scipy.linalg_Watermarked.76f069fd1775.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Linear-Algebra-With-SciPy-How-to-Use-scipy.linalg_Watermarked.76f069fd1775.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Linear-Algebra-With-SciPy-How-to-Use-scipy.linalg_Watermarked.76f069fd1775.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Linear-Algebra-With-SciPy-How-to-Use-scipy.linalg_Watermarked.76f069fd1775.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-scipy-linalg/">
+      <h2 class="card-title h4 my-0 py-0">Working With Linear Systems in Python With scipy.linalg</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/python-folium-web-maps-from-data/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Python Folium: Create Web Maps From Your Data" src="https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Showcase-Folium_Watermarked.e23256df3c8d.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/python-folium-web-maps-from-data/">
+      <h2 class="card-title h4 my-0 py-0">Python Folium: Create Web Maps From Your Data</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/natural-language-processing-spacy-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Natural Language Processing With spaCy in Python" src="https://files.realpython.com/media/How-to-Use-SpaCy-for-Natural-Language-Processing-in-Python_Watermarked_1.b363fc084a80.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/How-to-Use-SpaCy-for-Natural-Language-Processing-in-Python_Watermarked_1.b363fc084a80.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/How-to-Use-SpaCy-for-Natural-Language-Processing-in-Python_Watermarked_1.b363fc084a80.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/How-to-Use-SpaCy-for-Natural-Language-Processing-in-Python_Watermarked_1.b363fc084a80.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/How-to-Use-SpaCy-for-Natural-Language-Processing-in-Python_Watermarked_1.b363fc084a80.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/natural-language-processing-spacy-python/">
+      <h2 class="card-title h4 my-0 py-0">Natural Language Processing With spaCy in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/generate-images-with-dalle-openai-api/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Generate Images With DALL·E 2 and the OpenAI API" src="https://files.realpython.com/media/Generate-Images-with-DALL-E-2-and-OpenAIs-API_Watermarked.05753350e866.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Generate-Images-with-DALL-E-2-and-OpenAIs-API_Watermarked.05753350e866.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Generate-Images-with-DALL-E-2-and-OpenAIs-API_Watermarked.05753350e866.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Generate-Images-with-DALL-E-2-and-OpenAIs-API_Watermarked.05753350e866.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Generate-Images-with-DALL-E-2-and-OpenAIs-API_Watermarked.05753350e866.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/generate-images-with-dalle-openai-api/">
+      <h2 class="card-title h4 my-0 py-0">Generate Images With DALL·E 2 and the OpenAI API</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/api/" class="badge badge-light text-muted">api</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/power-bi-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Microsoft Power BI and Python: Two Superpowers Combined" src="https://files.realpython.com/media/Using-Power-BI-with-Python_Watermarked.f4e83c79f98b.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Using-Power-BI-with-Python_Watermarked.f4e83c79f98b.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Using-Power-BI-with-Python_Watermarked.f4e83c79f98b.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Using-Power-BI-with-Python_Watermarked.f4e83c79f98b.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Using-Power-BI-with-Python_Watermarked.f4e83c79f98b.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/power-bi-python/">
+      <h2 class="card-title h4 my-0 py-0">Microsoft Power BI and Python: Two Superpowers Combined</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+          
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/build-a-chatbot-python-chatterbot/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc774;" alt="ChatterBot: Build a Chatbot With Python" src="https://files.realpython.com/media/Chatterbot-Build-a-Chatbot-With-Python_Watermarked.07a26197ef70.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Chatterbot-Build-a-Chatbot-With-Python_Watermarked.07a26197ef70.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Chatterbot-Build-a-Chatbot-With-Python_Watermarked.07a26197ef70.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Chatterbot-Build-a-Chatbot-With-Python_Watermarked.07a26197ef70.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Chatterbot-Build-a-Chatbot-With-Python_Watermarked.07a26197ef70.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/build-a-chatbot-python-chatterbot/">
+      <h2 class="card-title h4 my-0 py-0">ChatterBot: Build a Chatbot With Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/numpy-max-maximum/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #aadfe5;" alt="NumPy&#x27;s max() and maximum(): Find Extreme Values in Arrays" src="https://files.realpython.com/media/NumPy-max-vs-amax-vs-maximum_Watermarked.47deb5fab721.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/NumPy-max-vs-amax-vs-maximum_Watermarked.47deb5fab721.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/NumPy-max-vs-amax-vs-maximum_Watermarked.47deb5fab721.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/NumPy-max-vs-amax-vs-maximum_Watermarked.47deb5fab721.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/NumPy-max-vs-amax-vs-maximum_Watermarked.47deb5fab721.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/numpy-max-maximum/">
+      <h2 class="card-title h4 my-0 py-0">NumPy&#x27;s max() and maximum(): Find Extreme Values in Arrays</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/data-pandas-concat-and-merge/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b8aae5;" alt="Combining Data in Pandas With merge(), .join(), and concat()" src="https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/data-pandas-concat-and-merge/">
+      <h2 class="card-title h4 my-0 py-0">Combining Data in pandas With concat() and merge()</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/pyscript-python-in-browser/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b9abe6;" alt="A First Look at PyScript: Python in the Web Browser" src="https://files.realpython.com/media/PyScript_Watermarked.f91b33f963a1.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/PyScript_Watermarked.f91b33f963a1.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/PyScript_Watermarked.f91b33f963a1.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/PyScript_Watermarked.f91b33f963a1.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/PyScript_Watermarked.f91b33f963a1.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/pyscript-python-in-browser/">
+      <h2 class="card-title h4 my-0 py-0">A First Look at PyScript: Python in the Web Browser</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+          
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+
+        
+          
+<a href="/tutorials/gui/" class="badge badge-light text-muted">gui</a>
+
+        
+          
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/data-cleaning-with-pandas-and-numpy/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Pythonic Data Cleaning With Pandas and NumPy" src="https://files.realpython.com/media/Pythonic-Data-Cleaning-With-Pandas_Watermarked.f9e9f439a6d6.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pythonic-Data-Cleaning-With-Pandas_Watermarked.f9e9f439a6d6.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pythonic-Data-Cleaning-With-Pandas_Watermarked.f9e9f439a6d6.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pythonic-Data-Cleaning-With-Pandas_Watermarked.f9e9f439a6d6.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pythonic-Data-Cleaning-With-Pandas_Watermarked.f9e9f439a6d6.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/data-cleaning-with-pandas-and-numpy/">
+      <h2 class="card-title h4 my-0 py-0">Data Cleaning With pandas and NumPy</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/quizzes/linear-regression-in-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Linear Regression in Python" src="https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/quizzes/linear-regression-in-python/">
+      <h2 class="card-title h4 my-0 py-0">Linear Regression in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+        <span class="mr-2">May 20, 2022</span>
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/linear-regression-in-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Linear Regression in Python" src="https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/linear-regression-in-python/">
+      <h2 class="card-title h4 my-0 py-0">Linear Regression in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/pandas-groupby/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Pandas GroupBy: Your Guide to Grouping Data in Python" src="https://files.realpython.com/media/Grouping-and-Aggregating-Data-in-Pandas_Watermarked.d79eb1266abf.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Grouping-and-Aggregating-Data-in-Pandas_Watermarked.d79eb1266abf.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Grouping-and-Aggregating-Data-in-Pandas_Watermarked.d79eb1266abf.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Grouping-and-Aggregating-Data-in-Pandas_Watermarked.d79eb1266abf.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Grouping-and-Aggregating-Data-in-Pandas_Watermarked.d79eb1266abf.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/pandas-groupby/">
+      <h2 class="card-title h4 my-0 py-0">pandas GroupBy: Your Guide to Grouping Data in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/pandas-merge-join-and-concat/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #b8aae5;" alt="Combining Data in Pandas With merge(), .join(), and concat()" src="https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Merging-Joining-and-Concatenating-in-Pandas_Watermarked_1.e45698a508a4.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/pandas-merge-join-and-concat/">
+      <h2 class="card-title h4 my-0 py-0">Combining Data in pandas With merge(), .join(), and concat()</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/sorting-data-python-pandas/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Pandas Sort: Your Guide to Sorting Data in Python" src="https://files.realpython.com/media/Pandas-Sort_Watermarked.63f138ec3804.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pandas-Sort_Watermarked.63f138ec3804.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pandas-Sort_Watermarked.63f138ec3804.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pandas-Sort_Watermarked.63f138ec3804.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pandas-Sort_Watermarked.63f138ec3804.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/sorting-data-python-pandas/">
+      <h2 class="card-title h4 my-0 py-0">Sorting Data in Python With pandas</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/python-linear-regression/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Linear Regression in Python" src="https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/python-linear-regression/">
+      <h2 class="card-title h4 my-0 py-0">Starting With Linear Regression in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/data-viz-with-dash/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Develop Data Visualization Interfaces in Python With Dash" src="https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Data-Visualization-With-Dash_Watermarked.b3eae31c557f.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/data-viz-with-dash/">
+      <h2 class="card-title h4 my-0 py-0">Data Visualization Interfaces in Python With Dash</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/build-neural-network-python-ai/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Python AI: How to Build a Neural Network &amp; Make Predictions" src="https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.29dce6a3b9be.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.29dce6a3b9be.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.29dce6a3b9be.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.29dce6a3b9be.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Python-AI-How-to-Build-Your-First-Neural-Network_Watermarked.29dce6a3b9be.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/build-neural-network-python-ai/">
+      <h2 class="card-title h4 my-0 py-0">Building a Neural Network &amp; Making Predictions With Python AI</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/graph-data-with-python-and-ggplot/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="Using ggplot in Python: Visualizing Data With plotnine" src="https://files.realpython.com/media/Data-Visualization-with-ggplot_Watermarked.55f8b3eb75d8.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Data-Visualization-with-ggplot_Watermarked.55f8b3eb75d8.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Data-Visualization-with-ggplot_Watermarked.55f8b3eb75d8.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Data-Visualization-with-ggplot_Watermarked.55f8b3eb75d8.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Data-Visualization-with-ggplot_Watermarked.55f8b3eb75d8.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/graph-data-with-python-and-ggplot/">
+      <h2 class="card-title h4 my-0 py-0">Graph Your Data With Python and ggplot</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/data-viz/" class="badge badge-light text-muted">data-viz</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/splitting-datasets-scikit-learn-train-test-split/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe5b2;" alt="Split Your Dataset With scikit-learn&#x27;s train_test_split()" src="https://files.realpython.com/media/Splitting-Datasets-With-sklearns-train_test_split_Watermarked.13dcac93b15d.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Splitting-Datasets-With-sklearns-train_test_split_Watermarked.13dcac93b15d.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Splitting-Datasets-With-sklearns-train_test_split_Watermarked.13dcac93b15d.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Splitting-Datasets-With-sklearns-train_test_split_Watermarked.13dcac93b15d.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Splitting-Datasets-With-sklearns-train_test_split_Watermarked.13dcac93b15d.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/splitting-datasets-scikit-learn-train-test-split/">
+      <h2 class="card-title h4 my-0 py-0">Splitting Datasets With scikit-learn and train_test_split()</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+          
+<a href="/tutorials/numpy/" class="badge badge-light text-muted">numpy</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/reading-writing-files-pandas/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #abe0e6;" alt="Pandas: How to Read and Write Files" src="https://files.realpython.com/media/Reading-and-Writing-Data-With-Pandas_Watermarked.435ef1c38466.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Reading-and-Writing-Data-With-Pandas_Watermarked.435ef1c38466.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Reading-and-Writing-Data-With-Pandas_Watermarked.435ef1c38466.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Reading-and-Writing-Data-With-Pandas_Watermarked.435ef1c38466.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Reading-and-Writing-Data-With-Pandas_Watermarked.435ef1c38466.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/reading-writing-files-pandas/">
+      <h2 class="card-title h4 my-0 py-0">Reading and Writing Files With pandas</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/pandas-dataframe-working-with-data/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ff7e74;" alt="The Pandas DataFrame: Make Working With Data Delightful" src="https://files.realpython.com/media/A-Guide-to-Pandas-Dataframes_Watermarked.7330c8fd51bb.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/A-Guide-to-Pandas-Dataframes_Watermarked.7330c8fd51bb.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/A-Guide-to-Pandas-Dataframes_Watermarked.7330c8fd51bb.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/A-Guide-to-Pandas-Dataframes_Watermarked.7330c8fd51bb.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/A-Guide-to-Pandas-Dataframes_Watermarked.7330c8fd51bb.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/pandas-dataframe-working-with-data/">
+      <h2 class="card-title h4 my-0 py-0">The pandas DataFrame: Working With Data Efficiently</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/speech-recognition-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e6c7ab;" alt="Python Speech Recognition" src="https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/speech-recognition-python/">
+      <h2 class="card-title h4 my-0 py-0">Speech Recognition With Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/beautiful-soup-web-scraper-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Beautiful Soup: Build a Web Scraper With Python" src="https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/beautiful-soup-web-scraper-python/">
+      <h2 class="card-title h4 my-0 py-0">Beautiful Soup: Build a Web Scraper With Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+
+        
+          
+<a href="/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/gradebook-using-pandas-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #ffc873;" alt="Pandas Project: Make a Gradebook With Pandas" src="https://files.realpython.com/media/Pandas-Project-Make-a-Gradebook-With-Pandas_Watermarked.6cf148621988.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Pandas-Project-Make-a-Gradebook-With-Pandas_Watermarked.6cf148621988.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Pandas-Project-Make-a-Gradebook-With-Pandas_Watermarked.6cf148621988.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Pandas-Project-Make-a-Gradebook-With-Pandas_Watermarked.6cf148621988.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Pandas-Project-Make-a-Gradebook-With-Pandas_Watermarked.6cf148621988.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/gradebook-using-pandas-python/">
+      <h2 class="card-title h4 my-0 py-0">Using pandas to Make a Gradebook in Python</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+          
+<a href="/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/courses/explore-dataset-with-pandas/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Using Pandas and Python to Explore Your Dataset" src="https://files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="mx-auto">
+          <span class="text-light" style="opacity: 0.90;"><span class="icon baseline scale3x" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@play"/></svg></span></span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/courses/explore-dataset-with-pandas/">
+      <h2 class="card-title h4 my-0 py-0">Explore Your Dataset With pandas</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+      <div class="col-12 col-md-6 mb-5">
+        
+
+<div class="card border-0">
+  <a href="/nltk-nlp-python/">
+    <div class="embed-responsive embed-responsive-16by9">
+      
+        <img loading="lazy" class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain; background: #e5c5ac;" alt="Natural Language Processing With Python&#x27;s NLTK Package" src="https://files.realpython.com/media/NLP-for-Beginners-Pythons-Natural-Language-Toolkit-NLTK_Watermarked.16a787c1e9c6.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/NLP-for-Beginners-Pythons-Natural-Language-Toolkit-NLTK_Watermarked.16a787c1e9c6.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/NLP-for-Beginners-Pythons-Natural-Language-Toolkit-NLTK_Watermarked.16a787c1e9c6.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/NLP-for-Beginners-Pythons-Natural-Language-Toolkit-NLTK_Watermarked.16a787c1e9c6.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/NLP-for-Beginners-Pythons-Natural-Language-Toolkit-NLTK_Watermarked.16a787c1e9c6.jpg 1920w" sizes="(min-width: 1200px) 330px, (min-width: 1000px) 290px, (min-width: 780px) 330px, (min-width: 580px) 510px, calc(100vw - 30px)">
+      
+      
+    </div>
+  </a>
+  <div class="card-body m-0 p-0 mt-2">
+    <a class=" " href="/nltk-nlp-python/">
+      <h2 class="card-title h4 my-0 py-0">Natural Language Processing With Python&#x27;s NLTK Package</h2>
+    </a>
+    <p class="card-text text-muted text-truncate small">
+      
+      
+      
+        <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>
+        
+          
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+
+        
+          
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+
+        
+      
+    </p>
+  </div>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+  
+    <nav aria-label="Page Navigation">
+      <ul class="pagination pagination-lg justify-content-center">
+        
+          <li class="page-item disabled"><a class="page-link">«</a></li>
+        
+        
+          
+            <li class="page-item active"><a class="page-link">1</a></li>
+          
+        
+          
+            <li class="page-item"><a class="page-link" href="/tutorials/data-science/page/2/">2</a></li>
+          
+        
+          
+            <li class="page-item"><a class="page-link" href="/tutorials/data-science/page/3/">3</a></li>
+          
+        
+        
+          <li class="page-item"><a class="page-link" href="/tutorials/data-science/page/2/">»</a></li>
+        
+      </ul>
+    </nav>
+  
+
+  <div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+    
+<div style="display:block;position:relative;">
+  <div style="display:block;width:100%;padding-top:25%;"></div>
+  <div class="rpad" data-unit="4x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+    </div>
+
+    
+    
+
+    
+    
+
+    
+      
+<footer class="footer">
+  <div class="container">
+    
+
+    <p class="text-center text-muted w-75 mx-auto">© 2012–2024 Real&nbsp;Python&nbsp;⋅ <a href="/newsletter/">Newsletter</a>&nbsp;⋅ <a href="/podcasts/rpp/">Podcast</a>&nbsp;⋅ <a href="https://www.youtube.com/realpython">YouTube</a>&nbsp;⋅ <a href="https://twitter.com/realpython">Twitter</a>&nbsp;⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a>&nbsp;⋅ <a href="https://www.instagram.com/realpython/">Instagram</a>&nbsp;⋅ <a href="/">Python&nbsp;Tutorials</a>&nbsp;⋅ <a href="/search">Search</a>&nbsp;⋅ <a href="/privacy-policy/">Privacy Policy</a>&nbsp;⋅ <a href="/energy-policy/">Energy Policy</a>&nbsp;⋅ <a href="/sponsorships/">Advertise</a>&nbsp;⋅ <a href="/contact/">Contact</a><br><span class="icon baseline text-color-red" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--heart"/></svg></span> Happy Pythoning!</p>
+  </div>
+</footer>
+
+    
+
+    
+
+    
+    <script>
+      (function() {
+        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+        if (!isAndroid) {
+          return;
+        }
+
+        var styles = `
+        @font-face {
+          font-family: 'DejaVu Sans Mono';
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+          src: url('/static/mfonts/dejavu-sans-mono.33f00225f915.woff2') format('woff2'),
+               url('/static/mfonts/dejavu-sans-mono.0da77d3739f3.woff') format('woff'),
+               url('/static/mfonts/dejavu-sans-mono.c2356fc49835.ttf') format('truetype');
+        }
+        code, kbd, pre, samp {
+          font-family: 'DejaVu Sans Mono', monospace;
+        }
+        `
+
+        var styleSheet = document.createElement("style")
+        styleSheet.type = "text/css"
+        styleSheet.innerText = styles
+        document.head.appendChild(styleSheet)
+      })();
+    </script>
+
+    
+    
+    <script src="/static/jquery.min.2c872dbe60f4.js"></script>
+    <script src="/static/popper.min.47dc3aaf2942.js"></script>
+    <script src="/static/bootstrap.min.a3b2689424c3.js"></script>
+
+    
+    
+
+    <script>
+    (function() {
+      document.querySelectorAll(".js-search-form-submit").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.currentTarget.parentElement.submit();
+        })
+      });
+    })();
+    </script>
+    <script src="/static/frontend/reader/codeblock.5c8399b698d9.js" async></script>
+    <script src="/static/frontend/reader/lightbox.5387b5824229.js" async></script>
+    <script src="/static/frontend/reader/platforms-ui.b11202dc6079.js" async></script>
+    
+
+    
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+<script>window.rp_prop_id = '58946116052';</script>
+<script src="https://srv.realpython.net/tag.js" async></script>
+
+
+
+
+    <script src="/static/frontend/optins/optins.9b3f3d317bfa.js" async></script>
+    <script src="/static/frontend/search/autocomplete.eb8dcedc5710.js" async></script>
+
+    
+
+    
+
+    
+
+    
+
+    
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2220911568135371');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2220911568135371&ev=PageView&noscript=1"
+/></noscript>
+
+
+    
+
+    
+
+  <script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'888dc21fd8ef7309',t:'MTcxNjU1ODY2My44OTEwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

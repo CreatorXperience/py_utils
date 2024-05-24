@@ -1,0 +1,299 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Sign-In – Real Python</title>
+    <meta name="author" content="Real Python">
+    <meta name="description" content="Sign in to your Real Python account.">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+
+    
+<link rel="canonical" href="https://realpython.com/account/login/">
+
+
+    <link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+    <link rel="stylesheet" href="/static/gfonts/font.5ac42994de49.css">
+    <link rel="stylesheet" href="/static/realpython.min.f440503857fc.css">
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:image" content="/static/social-default-image.5e1aa4786b3a.png">
+    <meta property="og:image" content="/static/social-default-image.5e1aa4786b3a.png">
+
+    
+<style>
+.asteriskField {
+    display: none;
+}
+</style>
+
+
+    
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+
+  
+
+  
+
+  
+  
+  ga('set', {
+    dimension1: false,
+    dimension2: false
+  });
+  
+
+  ga('send', 'pageview');
+  
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7L6L5F6Y6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7L6L5F6Y6');
+
+  
+</script>
+
+  </head>
+  <body>
+
+    
+  
+
+<nav class="navbar  navbar-expand-lg navbar-dark flex-column  user-select-none">
+  <div class="container flex-row">
+
+    <a class="navbar-brand" href="/">
+      <img src="/static/real-python-logo.893c30edea53.svg" width="165" height="40" class="d-inline-block align-top" alt="Real Python">
+    </a>
+
+    
+    </div>
+
+  </div>
+
+  
+
+</nav>
+
+
+
+    <div class="container main-content">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 article">
+          
+
+          
+<div class="article-body page-body mx-auto" style="max-width: 400px;">
+  <h1 class="text-center mb-4">Sign-In</h1>
+
+  
+
+  <form class="login mb-4 mx-auto w-100 border rounded p-3" method="POST" action="/account/login/" onsubmit="jsSubmitButton.disabled = true; return true;">
+
+    
+    
+      <div class="socialaccount_ballot">
+        <div class="d-flex justify-content-between flex-wrap mx-n1"> 
+          
+
+
+
+
+
+    <a title="GitHub" class="socialaccount_provider github btn btn-md btn-secondary bg-white flex-fill mx-1 mb-1 " href="/account/github/login/?process=login&amp;next=%2Fprimer-on-python-decorators%2F">
+      <span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#brands--github"/></svg></span><span class="d-none d-md-inline">GitHub</span>
+    </a>
+
+    <a title="Google" class="socialaccount_provider google btn btn-md btn-secondary bg-white flex-fill mx-1 mb-1 " href="/account/google/login/?process=login&amp;next=%2Fprimer-on-python-decorators%2F">
+      <span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#brands--google-color"/></svg></span><span class="d-none d-md-inline">Google</span>
+    </a>
+
+    <a title="LinkedIn" class="socialaccount_provider linkedin_oauth2 btn btn-md btn-secondary bg-white flex-fill mx-1 mb-1 " href="/account/linkedin_oauth2/login/?process=login&amp;next=%2Fprimer-on-python-decorators%2F">
+      <span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#brands--linkedin-color"/></svg></span><span class="d-none d-md-inline">LinkedIn</span>
+    </a>
+
+
+        </div>
+
+        <div class="vline-wrapper my-2">
+          <div class="vline"><span class="vline-content px-2">or</span></div>
+        </div>
+      </div>
+      
+
+
+
+
+
+    
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="QicY2q7iFXcjSMHMKEBQD65jZr20mQou67SVAU9xCraUl99KpOqfRkZWfQPNLBGy">
+    
+      <input type="hidden" name="next" value="/primer-on-python-decorators/" />
+    
+
+    
+
+
+    <div class="form-group">
+      
+
+
+    
+    <div id="div_id_login" class="form-group">
+        
+        
+        <label for="id_login" class=" requiredField">
+                Email<span class="asteriskField">*</span>
+            </label>
+        
+
+        
+
+        
+
+        
+            
+                <div>
+                    
+                        
+                            <input type="email" name="login" placeholder="" autocomplete="email" maxlength="320" autofocus="autofocus" class="emailinput form-control" required id="id_login">
+                        
+                    
+                    
+
+
+    
+
+
+
+
+    
+
+
+
+                </div>
+            
+        
+    </div>
+    
+
+
+    </div>
+    <div class="form-group">
+      
+
+
+    
+    <div id="div_id_password" class="form-group">
+        
+        
+        <label for="id_password" class=" requiredField">
+                Password<span class="asteriskField">*</span>
+            </label>
+        
+
+        
+
+        
+
+        
+            
+                <div>
+                    
+                        
+                            <input type="password" name="password" placeholder="" autocomplete="current-password" minlength="8" maxlength="99" class="passwordinput form-control" required aria-describedby="id_password_helptext" id="id_password">
+                        
+                    
+                    
+
+
+    
+
+
+
+
+    
+    
+        <small id="hint_id_password" class="form-text text-muted"><a href="/account/password/reset/">Forgot your password?</a></small>
+    
+
+
+
+
+                </div>
+            
+        
+    </div>
+    
+
+
+    </div>
+
+    <p class="small mt-n2 text-right"><a href="/account/password/reset/">Forgot Password?</a></p>
+
+    <p class="text-muted small">By signing in, you agree to our <a href="/terms/">Terms of Service</a> and <a href="/privacy-policy/">Privacy Policy</a>, which we may update from time to time. We&rsquo;ll occasionally send you account-related emails.</p>
+
+    
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-lg text-wrap px-5 mt-2 w-100" name="jsSubmitButton">Sign-In</button>
+    </div>
+
+  </form>
+
+  <div class="d-flex text-muted small w-100 mx-auto">
+    <span class="flex-fill border-top" style="margin-top:1.1rem;"></span>
+    <p class="my-1 px-2">New to Real Python?</p>
+    <span class="flex-fill border-top" style="margin-top:1.1rem;"></span>
+  </div>
+  <div class="w-100 mx-auto mb-5">
+    <p class="mt-2"><a href="/account/signup/?next=%2Fprimer-on-python-decorators%2F" class="btn btn-secondary border w-100">Create Your Real Python Account »</a></p>
+  </div>
+
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+  <div class="container">
+    <p class="text-center text-muted"><small>© 2012–2024 Real&nbsp;Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy&nbsp;Policy</small></a>
+  </div>
+</footer>
+
+
+    
+    
+    <script src="/static/jquery.min.2c872dbe60f4.js"></script>
+    <script src="/static/popper.min.47dc3aaf2942.js" ></script>
+    <script src="/static/bootstrap.min.a3b2689424c3.js" ></script>
+
+    
+
+    
+
+
+    
+    
+  <script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'888dc1fb5a847309',t:'MTcxNjU1ODY1Ny45NTYwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

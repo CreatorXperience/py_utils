@@ -120,3 +120,20 @@ function join(x, list = []){
 
 
 
+
+
+  function print_total(){
+    let avg  = 5
+
+
+    function print(){
+        let expenses = 2000
+        let amount  = 5000
+        return (amount - 2000 )+avg
+    }
+    return print
+  }
+
+
+  let get_total = print_total()
+console.log(get_total())

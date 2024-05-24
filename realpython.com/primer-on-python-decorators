@@ -1,22 +1,23 @@
---2024-05-24 13:29:39--  https://realpython.com/primer-on-python-decorators/
-Resolving realpython.com (realpython.com)... 172.67.43.55, 2606:4700:10::ac43:2b37
-Connecting to realpython.com (realpython.com)|172.67.43.55|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [text/html]
-Saving to: ‘index.html’
 
-     0K .......... .......... .......... .......... ..........  334K
-    50K .......... .......... .......... .......... ..........  364K
-   100K .......... .......... .......... .......... ..........  598K
-   150K .......... .......... .......... .......... ..........  582K
-   200K .......... .......... .......... .......... ..........  547K
-   250K .......... .......... .......... .......... ..........  201K
-   300K .......... .......... .......... .......... .......... 69.3M
-   350K .......... .......... ..                               77.4M=0.8s
 
-2024-05-24 13:29:41 (467 KB/s) - ‘index.html’ saved [381779]
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    
+    <link href="https://files.realpython.com" rel="preconnect">
 
-over">
+    <title>Primer on Python Decorators – Real Python</title>
+    <meta name="author" content="Real Python">
+    <meta name="description" content="In this tutorial, you&#x27;ll look at what Python decorators are and how you define and use them. Decorators can make your code more readable and reusable. Come take a look at how decorators work under the hood and practice writing your own decorators.">
+    <meta name="keywords" content="">
+
+    
+  
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 
     
       <link rel="stylesheet" href="/static/realpython.min.f440503857fc.css">
@@ -252,7 +253,7 @@ over">
       <p><img loading="lazy" class="img-fluid rounded" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge"></p>
     </div>
     <div class="form-group">
-      <input type="hidden" name="csrfmiddlewaretoken" value="f1pImYMKBzJekJzRgD4pQQ3fSsSaFxfyuZyhF5WVlXZ8zjdlHN6oPrNGJ8tpCfnZ">
+      <input type="hidden" name="csrfmiddlewaretoken" value="jaRCD1qNE7h0Rglie9ArcHoUUSahtVK5zZxzbvs2BBfBkDNgTjpQqVixahX4SG29">
       <input type="hidden" name="slug" value="static-python-tricks-sidebar">
       <input type="email" class="form-control form-control-md" name="email" placeholder="Email&hellip;" required>
     </div>
@@ -4160,7 +4161,7 @@ over">
       </div>
       <div class="row mb-3">
         <form class="col-12" action="/optins/process/" method="post">
-          <input type="hidden" name="csrfmiddlewaretoken" value="f1pImYMKBzJekJzRgD4pQQ3fSsSaFxfyuZyhF5WVlXZ8zjdlHN6oPrNGJ8tpCfnZ">
+          <input type="hidden" name="csrfmiddlewaretoken" value="jaRCD1qNE7h0Rglie9ArcHoUUSahtVK5zZxzbvs2BBfBkDNgTjpQqVixahX4SG29">
           <input type="hidden" name="slug" value="static-python-tricks-footer">
           <div class="form-group">
             <input name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required>
@@ -4496,7 +4497,7 @@ over">
               <p id="modal-power-of-decorators-fixed-title" class="text-center h3 mb-4">The Power of Python Decorators: Advanced Patterns &amp; Techniques (PDF Guide)</p>
 
               <form class="col-12" action="/optins/process/" method="post">
-                <input type="hidden" name="csrfmiddlewaretoken" value="f1pImYMKBzJekJzRgD4pQQ3fSsSaFxfyuZyhF5WVlXZ8zjdlHN6oPrNGJ8tpCfnZ">
+                <input type="hidden" name="csrfmiddlewaretoken" value="jaRCD1qNE7h0Rglie9ArcHoUUSahtVK5zZxzbvs2BBfBkDNgTjpQqVixahX4SG29">
                 <input type="hidden" name="slug" value="power-of-decorators-fixed">
                 <input type="hidden" name="source_path" value="/primer-on-python-decorators/"> 
                 <div class="form-group">
@@ -4555,7 +4556,7 @@ over">
               <p id="modal-decorators-cheatsheet-title" class="text-center h3 mb-4">Python Decorators Cheat Sheet (PDF)</p>
 
               <form class="col-12" action="/optins/process/" method="post">
-                <input type="hidden" name="csrfmiddlewaretoken" value="f1pImYMKBzJekJzRgD4pQQ3fSsSaFxfyuZyhF5WVlXZ8zjdlHN6oPrNGJ8tpCfnZ">
+                <input type="hidden" name="csrfmiddlewaretoken" value="jaRCD1qNE7h0Rglie9ArcHoUUSahtVK5zZxzbvs2BBfBkDNgTjpQqVixahX4SG29">
                 <input type="hidden" name="slug" value="decorators-cheatsheet">
                 <input type="hidden" name="source_path" value="/primer-on-python-decorators/"> 
                 <div class="form-group">
@@ -4614,7 +4615,7 @@ over">
               <p id="modal-primer-on-python-decorators-code-title" class="text-center h3 mb-4">Primer on Python Decorators (Sample Code)</p>
 
               <form class="col-12" action="/optins/process/" method="post">
-                <input type="hidden" name="csrfmiddlewaretoken" value="f1pImYMKBzJekJzRgD4pQQ3fSsSaFxfyuZyhF5WVlXZ8zjdlHN6oPrNGJ8tpCfnZ">
+                <input type="hidden" name="csrfmiddlewaretoken" value="jaRCD1qNE7h0Rglie9ArcHoUUSahtVK5zZxzbvs2BBfBkDNgTjpQqVixahX4SG29">
                 <input type="hidden" name="slug" value="primer-on-python-decorators-code">
                 <input type="hidden" name="source_path" value="/primer-on-python-decorators/"> 
                 <div class="form-group">
@@ -4673,7 +4674,7 @@ over">
               <p id="modal-decorators-qa-2019-title" class="text-center h3 mb-4">Python Decorators Q&amp;A Transcript (PDF)</p>
 
               <form class="col-12" action="/optins/process/" method="post">
-                <input type="hidden" name="csrfmiddlewaretoken" value="f1pImYMKBzJekJzRgD4pQQ3fSsSaFxfyuZyhF5WVlXZ8zjdlHN6oPrNGJ8tpCfnZ">
+                <input type="hidden" name="csrfmiddlewaretoken" value="jaRCD1qNE7h0Rglie9ArcHoUUSahtVK5zZxzbvs2BBfBkDNgTjpQqVixahX4SG29">
                 <input type="hidden" name="slug" value="decorators-qa-2019">
                 <input type="hidden" name="source_path" value="/primer-on-python-decorators/"> 
                 <div class="form-group">
@@ -4935,5 +4936,5 @@ over">
 
     
 
-  <script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'888da2c96d050676',t:'MTcxNjU1NzM4MC40MDAwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+  <script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'888dbc3509377309',t:'MTcxNjU1ODQyMS40MzgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
 </html>

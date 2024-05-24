@@ -1,0 +1,734 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    
+    <link href="https://files.realpython.com" rel="preconnect">
+
+    <title>Become a Python Expert – Real Python</title>
+    <meta name="author" content="Real Python">
+    <meta name="description" content="Level up your Python skills with this complete learning system. Expert-made tutorials, courses, quizzes, and more.">
+    <meta name="keywords" content="">
+
+    
+  
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+
+    
+      <link rel="stylesheet" href="/static/realpython.min.f440503857fc.css">
+      <link rel="stylesheet" href="/static/gfonts/font.5ac42994de49.css">
+      <link rel="preload" href="/static/glightbox.min.9b438b29cef1.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/static/glightbox.min.9b438b29cef1.css"></noscript>
+      
+    
+
+    
+
+    
+    
+      <link rel="canonical" href="https://realpython.com/start-here/">
+
+      
+      
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://files.realpython.com/media/real-python-video-courses-title-wide.daf71ae6460c.png">
+        <meta property="og:image" content="https://files.realpython.com/media/real-python-video-courses-title-wide.daf71ae6460c.png">
+      
+      <meta name="twitter:creator" content="@realpython">
+      <meta name="twitter:site" content="@realpython">
+      <meta property="og:title" content="Become a Python Expert – Real Python">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://realpython.com/start-here/">
+      <meta property="og:description" content="Level up your Python skills with this complete learning system. Expert-made tutorials, courses, quizzes, and more.">
+    
+
+    <link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+    <link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+    <link rel="manifest" href="/manifest.json">
+
+    
+
+    
+    
+
+    
+    <script id="icons-data" type="application/json">{"iconsUrl": "/static/icons.654fd44c148d.svg"}</script>
+    <script id="optins-data" type="application/json">{"turnstileSiteKey": "0x4AAAAAAAQQUCLRXBi8NnUh"}</script>
+
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+
+  
+
+  
+
+  
+  
+  ga('set', {
+    dimension1: false,
+    dimension2: false
+  });
+  
+
+  ga('send', 'pageview');
+  
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7L6L5F6Y6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7L6L5F6Y6');
+
+  
+</script>
+
+  </head>
+  <body >
+    
+      
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column  user-select-none">
+  <div class="container flex-row">
+
+    <a class="navbar-brand" href="/">
+      <img src="/static/real-python-logo.893c30edea53.svg" width="165" height="40" class="d-inline-block align-top" alt="Real Python">
+    </a>
+
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarSupportedContent" role="navigation" aria-label="Main Navigation">
+
+      <ul class="navbar-nav mr-2">
+
+        <li class="nav-item">
+          <a class="nav-link rounded" href="/start-here/">Start&nbsp;Here</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link rounded dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#brands--python"/></svg></span> Learn Python
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+            
+<a class="dropdown-item " href="/search?kind=article&kind=course&order=newest" style="color: #ff7e73; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--graduation-cap"/></svg></span>Python Tutorials&nbsp;→<br><small class="text-secondary">In-depth articles and video courses</small></a>
+
+
+            
+<a class="dropdown-item " href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@learning-path"/></svg></span>Learning Paths&nbsp;→<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+
+
+            
+<a class="dropdown-item " href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@quiz"/></svg></span>Quizzes&nbsp;→<br><small class="text-secondary">Check your learning progress</small></a>
+
+
+            
+<a class="dropdown-item " href="/tutorials/all/" style="color: #ccc; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@category"/></svg></span>Browse Topics&nbsp;→<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+
+
+            
+<a class="dropdown-item " href="/community/" style="color: #e5c6ab; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--message-smile"/></svg></span>Community Chat&nbsp;→<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+
+
+            
+<a class="dropdown-item " href="/office-hours/" style="color: #e5c6ab; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--users"/></svg></span>Office Hours&nbsp;→<br><small class="text-secondary">Live Q&A calls with Python experts</small></a>
+
+
+            
+<a class="dropdown-item " href="/podcasts/rpp/" style="color: #b8abe5; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@podcast"/></svg></span>Podcast&nbsp;→<br><small class="text-secondary">Hear what’s new in the world of Python</small></a>
+
+
+            
+<a class="dropdown-item " href="/products/books/" style="color: #abe5b1; line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--book-heart"/></svg></span>Books&nbsp;→<br><small class="text-secondary">Round out your knowledge and learn offline</small></a>
+
+
+            
+              
+              
+<a class="dropdown-item border-top text-warning" href="/account/join/" style="line-height: 110%;"><span class="icon baseline mr-1" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--star"/></svg></span>Unlock All Content&nbsp;→</a>
+
+            
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link rounded dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+            <a class="dropdown-item" href="/learner-stories/">Learner Stories</a>
+            <a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+            <a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+            <a class="dropdown-item" href="/team/">Meet the Team</a>
+            <a class="dropdown-item" href="/write-for-us/">Become a Tutorial Writer</a>
+            <a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+          </div>
+        </li>
+
+      </ul> 
+
+      
+      <div class="d-block d-lg-none"> 
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link rounded" href="/search" title="Search"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--search"/></svg></span> Search</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="d-none d-lg-flex align-items-center mr-2 flex-fill">
+        <form class="form-inline w-100 position-relative" action="/search" method="GET">
+          <a class="js-search-form-submit position-absolute" href="/search" title="Search" aria-hidden="true" tabindex="-1"><span class="icon baseline text-muted pl-2" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--search"/></svg></span></a>
+          <input class="search-autocomplete search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" aria-keyshortcuts="/ Control+J Meta+J" name="q" autocomplete="off">
+          <span class="search-hotkey-indicator position-absolute px-2 border border-input text-input rounded small user-select-none" style="right: 1em;" title="Press / (forward slash) or Ctrl+J to open search" aria-hidden="true">/</span>
+          <input type="hidden" name="_from" value="nav">
+        </form>
+      </div>
+      
+
+      <ul class="navbar-nav ml-auto">
+        
+          <li class="nav-item form-inline mr-2 my-2 ml-3 ml-lg-0">
+            <a class="btn btn-sm btn-primary px-5 px-lg-3" href="/account/join/">Join</a>
+          </li>
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link rounded mx-0 px-lg-2" href="/account/login/?next=%2Fstart-here%2F">Sign&#8209;In</a>
+          </li>
+        
+      </ul>
+
+    
+    </div>
+
+  </div>
+
+  
+
+</nav>
+
+    
+
+    <div class="container main-content">
+      
+
+      
+  <div class="row justify-content-center">
+
+    <div class="col-md-10 col-lg-8 article">
+      
+  <div class="article-body page-body">
+    <style>
+.page-body mark, .mark {
+  padding: .2em;
+  background-color: transparent;
+  border-radius: 1em 0 1em 0;
+  background-image: linear-gradient(-100deg,rgba(255,224,0,.3),rgba(255,224,0,.7) 95%,rgba(255,224,0,.1));
+}
+
+ul.idea {
+    padding-left: 1em;
+}
+ul.idea li {
+    padding-left: 1em;
+    padding-bottom: 1.125rem;
+}
+ul.idea li::before {
+    content: "✅";
+    position: absolute;
+    left: 1.25em;
+}
+</style>
+
+<!---->
+
+<!---->
+
+<h1 class="text-center my-3" id="become-a-pythonexpertmaster-the-essentialskills-forsuccess-in-theindustry"><mark>Become a <u>Python&nbsp;Expert</u>:</mark><br><br>Master the <em>Essential&nbsp;Skills</em> for<br>Success in the&nbsp;Industry<a class="headerlink" href="#become-a-pythonexpertmaster-the-essentialskills-forsuccess-in-theindustry" title="Permanent link"></a></h1>
+<p class="h3 text-center text-muted mt-0 mb-5">Turbocharge Your Python Learning with In-Depth Tutorials, Real-World Examples, and Expert Guidance</p>
+<p class="text-center mb-5"><a class="btn btn-lg btn-primary px-5 py-2 md-w66" href="/signup?intent=free_expert"><span class="font-weight-bold h4">Create a Free Account&nbsp;→</span><small class="d-block font-italic mt-n1">And Become a Python Expert</small></a></p>
+
+<div class="mx-md-n5 text-center mb-5">
+<h2 id="got-a-minute-hear-why-learners-choose-realpython">Got a minute? Hear why learners choose Real&nbsp;Python:<a class="headerlink" href="#got-a-minute-hear-why-learners-choose-realpython" title="Permanent link"></a></h2>
+<div class="embed-responsive embed-responsive-16by9 rounded mb-3"><iframe loading="lazy" class="embed-responsive-item rounded" type="text/html" src="https://www.youtube.com/embed/xMnw2mSsynw?autoplay=1&modestbranding=1&rel=0&showinfo=0&origin=https://realpython.com&cc_load_policy=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="Embedded video (click to play)" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}.play{height:25%;opacity:0.6;};</style><a href='https://www.youtube.com/embed/xMnw2mSsynw?autoplay=1&modestbranding=1&rel=0&showinfo=0&origin=https://realpython.com&cc_load_policy=1'><img src='https://img.youtube.com/vi/xMnw2mSsynw/hqdefault.jpg' alt='Video Thumbnail'><img class='play' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48cGF0aCBkPSJNNzMgMzljLTE0LjgtOS4xLTMzLjQtOS40LTQ4LjUtLjlTMCA2Mi42IDAgODBWNDMyYzAgMTcuNCA5LjQgMzMuNCAyNC41IDQxLjlzMzMuNyA4LjEgNDguNS0uOUwzNjEgMjk3YzE0LjMtOC43IDIzLTI0LjIgMjMtNDFzLTguNy0zMi4yLTIzLTQxTDczIDM5eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=='></a>"></iframe></div>
+<p><a href="/learner-stories"><strong>Learner Stories:</strong> What our members are&nbsp;saying&nbsp;→</a></p>
+</div>
+<h2 class="h1 text-center my-5" id="what-makes-real-python-special">What Makes Real Python Special?<a class="headerlink" href="#what-makes-real-python-special" title="Permanent link"></a></h2>
+<p><strong>Real Python</strong> is an online learning platform that teaches <a href="/join">individuals</a> and <a href="/teams">companies</a> the skills they need to work with Python in the real world. </p>
+<p>Founded in 2012, we are a leading provider of online Python education and one of the largest language-specific online communities for software developers.</p>
+<p>We publish high-quality learning resources, such as <a href="/search">tutorials</a>, <a href="/books">books</a>, <a href="/python-tricks">email newsletters</a>, <a href="/podcast">podcasts</a>, and <a href="/search">courses</a> to an audience of 3,000,000 developers, data scientists, and machine learning engineers each month.</p>
+<p><strong>Learn Python the right way&hellip;</strong></p>
+<p>Our learn-by-doing approach supports Pythonistas of any skill level. Along every step of the way, we&rsquo;ll help you learn, practice, assess your progress, and apply your newfound skills to solve real-world problems. </p>
+<div class="alert alert-warning border shadow-sm">
+<p><strong>Start your learning journey. What would you like to learn?</strong></p>
+<div class="d-flex mt-3 mb-40 mb-0">
+<form action="/search" class="form-inline col pl-0" id="home-search-form" method="GET">
+  <a class="js-search-form-submit position-absolute" href="/search" title="Search"><i class="fa fa-search fa-fw text-muted pl-2" aria-hidden="true"></i></a>
+  <input class="form-control form-control-lg w-100" style="padding-left: 2rem;" maxlength="50" type="search" placeholder="Search Real Python…" aria-label="Search" name="q">
+  <input type="hidden" name="_from" value="start-here">
+</form>
+<button class="btn btn-primary col-3 px-2" type="submit" form="home-search-form">Search</button>
+</div>
+</div>
+<h2 class="h1 text-center my-5" id="go-broad-and-deep-on-any-topic-in-the-python-curriculum">Go <strong>Broad <u>and</u> Deep</strong> on Any Topic in the Python Curriculum&hellip;<a class="headerlink" href="#go-broad-and-deep-on-any-topic-in-the-python-curriculum" title="Permanent link"></a></h2>
+<p>Technology moves <em>fast</em>&mdash;</p>
+<p>Think of Real Python as a &ldquo;gym for Pythonistas&rdquo; where we&rsquo;ll help you grow your skills deeper and deeper over time and you can trust us that you&rsquo;ll always find something new and&nbsp;interesting. </p>
+<p>Instead of wasting hours hunting for the right YouTube tutorial, boring themselves with Udemy courses of questionable quality, or begging for help on Reddit, Real&nbsp;Python members level up their skills quickly and effectively with curated resources that are always up to date.</p>
+<p><strong>Immersive Learning</strong> is our philosophy:</p>
+<p>At Real Python you can immerse yourself in a topic and explore it deeply with a variety of learning modalities, such as video courses, written tutorials, interactive quizzes, and podcast interviews.</p>
+<p><strong>Here&rsquo;s an example:</strong> </p>
+<p>Let&rsquo;s say you want to learn about <strong>Python Decorators</strong>.</p>
+<p>They&rsquo;re an amazingly useful feature in Python, but can appear quite arcane at first:</p>
+<div class="codeblock mb-3 w-100" aria-label="Code block" data-syntax-language="python" >
+  <div class="codeblock__header d-flex justify-content-between codeblock--blue">
+    <span class="mr-2 noselect" aria-label="Language">Python</span>
+    
+    <div class="noselect">
+      
+    </div>
+  </div>
+  <div style="position: relative;">
+    <div class="highlight highlight--with-header"><pre><span></span><code><span class="k">def</span> <span class="nf">do_twice</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper_do_twice</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper_do_twice</span>
+
+<span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">)</span>
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="err">!</span>
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="err">!</span>
+</code></pre></div>
+    
+    <button class="codeblock__copy btn btn-outline-secondary border m-1 px-1 d-hover-only" title="Copy to clipboard"><span class="icon baseline" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@copy"/></svg></span></button>
+    <template class="codeblock__copied-template">
+      <span class="small"><span class="icon baseline mr-1 text-success" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#@check"/></svg></span>Copied!</span>
+    </template>
+    
+  </div>
+</div>
+<p>Now, let&rsquo;s turn you into a decorator expert&hellip;</p>
+<p>Simply type “<strong><code>decorators</code></strong>” into the Real Python <a href="/search?q=decorators">search box</a> and you&rsquo;ll find:</p>
+<ul>
+<li><a href="https://realpython.com/courses/python-decorators-101/">A step-by-step video course</a> that gets you up to speed quickly with bite-sized lessons you can complete in just a few minutes at a time</li>
+<li><a href="https://realpython.com/primer-on-python-decorators/">An in-depth article</a> to explore more decorator use cases in great detail and with copyable code snippets</li>
+<li><a href="https://realpython.com/quizzes/decorators/">An interactive quiz</a> to test your knowledge of Python decorators</li>
+<li><a href="https://realpython.com/courses/python-decorators-101/">A Q&amp;A transcript from a Real Python Community Chat event</a> where our staff of Python experts answered members&rsquo; questions about decorators</li>
+<li><a href="https://realpython.com/python-timer/#a-python-timer-decorator">More tutorials and courses</a> that leverage decorators for writing clean and Pythonic code</li>
+<li><a href="https://realpython.com/products/python-tricks-book/">Our <em>Python Tricks</em> book</a> that shows you how to use decorators and other Python-specific features for maximum productivity</li>
+<li><a href="https://realpython.com/podcasts/rpp/1/">A podcast interview</a> that explores the topic further in a more conversational style (💡<strong>Tip:</strong> Pop in your headphones and round out your knowledge while you do laundry or take care of errands)</li>
+</ul>
+<p>And just like that, you&rsquo;ve discovered your playbook for deeply understanding Python decorators so you can leverage them in your own programs and impress your coworkers (or interviewers!)</p>
+<div class="alert text-body font-weight-bold shadow py-5 pb-5 px-md-5 my-5">
+<p>Hey there,</p>
+<p>I&rsquo;m Dan, CEO here at Real Python. </p>
+<p>Welcome to Real Python! I&rsquo;m excited you&rsquo;ve decided to join us on this amazing journey to becoming an expert Pythonista.</p>
+<p>At Real Python, we&rsquo;re 100% focused on Python and all about making learning fun and engaging.</p>
+<p>Our mission is to help you develop a deep expertise in all aspects of working with this amazing language.</p>
+<p>Our passionate team works hard to provide you with the best learning experience. We offer up-to-date tutorials, courses, quizzes, and real-world projects to help you gain practical skills and effortless mastery in Python programming.</p>
+<p>Since you&rsquo;re already on our &ldquo;Start Here&rdquo; page, you&rsquo;re in the perfect place to begin. This page is an introduction to Real Python and a how-to for accessing learning resources tailored to your&nbsp;needs.</p>
+<p>I&rsquo;m thrilled to have you in the Real Python community, and we&rsquo;re always here to support you. Don&rsquo;t hesitate to reach out if you have any questions or need help.</p>
+<p>Welcome aboard, and Happy Pythoning! ❤️🐍</p>
+<p class="pb-4">&mdash; Dan Bader</p>
+</div>
+<h2 class="h1 text-center my-5" id="where-to-start">Where to Start?<a class="headerlink" href="#where-to-start" title="Permanent link"></a></h2>
+<p>If you&rsquo;re <strong>completely new to programming</strong> and Python, then start your learning journey with the <em>Python Basics</em> learning path below. </p>
+<p class="mb-4">This path is designed to pick you up at the ground floor and carry you to basic proficiency with Python. After finishing the <em>Python Basics</em> path, you&rsquo;ll be well equipped to tackle any of other beginner learning paths: </p>
+<div class="container border rounded mb-4 shadow-sm">
+  <div class="row my-3">
+    <div class="col-xs-12 col-sm-4 col-md-3 align-self-center px-3">
+
+        <a href="/learning-paths/python-basics/" aria-hidden="true" tabindex="-1"><img loading="lazy" src="https://files.realpython.com/media/Python-Basics-Video-Course_Watermarked.5710cce31aa9.jpg" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/Python-Basics-Video-Course_Watermarked.5710cce31aa9.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/Python-Basics-Video-Course_Watermarked.5710cce31aa9.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/Python-Basics-Video-Course_Watermarked.5710cce31aa9.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/Python-Basics-Video-Course_Watermarked.5710cce31aa9.jpg 1920w" style="background: #abe0e6;" class="rounded img-fluid w-100 my-0" alt="Python Basics Video Course Setup Artwork" sizes="(min-width: 1200px) 142px, (min-width: 1000px) 122px, (min-width: 780px) 112px, (min-width: 580px) 139px, calc(100vw - 62px)"></a>
+
+    </div>
+    <div class="col px-3 pl-sm-0 mt-3 mt-sm-0">
+      <p class="small text-muted mb-0"><strong>Learning Path</strong></p>
+      <a class="stretched-link" href="/learning-paths/python-basics/"><h2 class="my-0 h3">Python Basics: Introduction to Python</h2></a>
+      <p class="text-muted mb-0 small">16 Resources ⋅ <strong>Skills:</strong> Python 3 Fundamentals, Real-World Projects</p>
+    </div>
+  </div>
+</div>
+
+<p class="text-right mb-4"><mark><a href="/learning-paths/">Explore All Learning Paths&nbsp;→</a></mark> </p>
+<p>Learning Python isn&rsquo;t a one-size-fits-all task, so it&rsquo;s important to spend some time thinking about why you&rsquo;re here. <a href="https://realpython.com/what-can-i-do-with-python/">What do you want to <em>do</em> with Python?</a> </p>
+<p>Think about where you want to go, and then consider what skills you&rsquo;ll need to get there. Learning is a continuous process. Stay open to exploring new areas and concepts, and don&rsquo;t be afraid to revise your goals as your interests evolve.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong><mark>🔥 Tip:</mark></strong> If you&rsquo;re unsure where to begin or jump into a learning path and get stuck, you can always ask for help in the <a href="https://realpython.com/community/">Real Python Community Chat</a> or at <a href="https://realpython.com/office-hours/">Office Hours</a>. Those are also great places to hear from other programmers who have been in your shoes and may have suggestions on what to do next.</p>
+</div>
+<p>Ready to kick things off? Check out our <a href="/onboarding-course"><em>Welcome to Real Python</em> onboarding course</a> where you&rsquo;ll get an overview of the features of the learning platform and tips on how you can make the most of Real Python, such as:</p></p>
+<ul>
+<li>How to find the most valuable learning resources for your current skill level</li>
+<li>How to meet and interact with other learners and the Real Python Team</li>
+<li>How to learn effectively</li>
+<li>&hellip; and more!</li>
+</ul>
+<p class="text-center"><a class="btn btn-lg btn-primary px-4" href="/onboarding-course">Watch the Onboarding Course&nbsp;→</a></p>
+<h2 class="h1 text-center my-5" id="why-real-python">Why Real Python?<a class="headerlink" href="#why-real-python" title="Permanent link"></a></h2>
+<div class="mx-md-n5 text-center">
+<div class="embed-responsive embed-responsive-16by9 rounded mb-3"><iframe loading="lazy" class="embed-responsive-item rounded" type="text/html" src="https://www.youtube.com/embed/g_X3RnVMl-U?autoplay=1&modestbranding=1&rel=0&showinfo=0&origin=https://realpython.com&cc_load_policy=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="Embedded video (click to play)" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}.play{height:25%;opacity:0.6;};</style><a href='https://www.youtube.com/embed/g_X3RnVMl-U?autoplay=1&modestbranding=1&rel=0&showinfo=0&origin=https://realpython.com&cc_load_policy=1'><img src='https://img.youtube.com/vi/g_X3RnVMl-U/hqdefault.jpg' alt='Video Thumbnail'><img class='play' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48cGF0aCBkPSJNNzMgMzljLTE0LjgtOS4xLTMzLjQtOS40LTQ4LjUtLjlTMCA2Mi42IDAgODBWNDMyYzAgMTcuNCA5LjQgMzMuNCAyNC41IDQxLjlzMzMuNyA4LjEgNDguNS0uOUwzNjEgMjk3YzE0LjMtOC43IDIzLTI0LjIgMjMtNDFzLTguNy0zMi4yLTIzLTQxTDczIDM5eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=='></a>"></iframe></div>
+<p><strong>Biggest Wins &amp; Results With Real&nbsp;Python</strong> (1:31)</p>
+</div>
+<p>To ensure a great learning experience and to continously improve our service, so we regularly ask our customers to share their thoughts in a feedback survey. </p>
+<p>Here&rsquo;s what learners love about Real Python:</p>
+<ul class="list-unstyled idea">
+<li><strong>Concise, clear, and in-depth explanations of various concepts, catering to different skill levels:</strong> On-demand access to easy-to-understand resources that break down complex concepts into simple, digestible lessons. No more confusion or frustration—just clear, concise learning.</li>
+<li><strong>Comprehensive and understandable tutorials, including advanced concepts and best practices:</strong> Stay up to date with the latest Python techniques and best practices. Our wide range of topics ensures you&rsquo;ll always be at the cutting edge of Python development.</li>
+<li><strong>High-quality content, including articles, video courses, and interactive quizzes, covering a wide range of topics:</strong> Choose the learning style that suits you best. With a mix of articles, video courses, and interactive quizzes, you&rsquo;ll never experience learning fatigue.</li>
+<li><strong>Practical, immediately applicable tutorials with real-world examples and applications:</strong> Our tutorials are designed with real-world applications in mind, ensuring that you can immediately apply what you&rsquo;ve learned to your projects and professional development.</li>
+<li><strong>Regularly updated and relevant content to stay current in the industry:</strong> Stay ahead of the game with our regularly updated content. As the Python landscape evolves, so do our tutorials, ensuring you&rsquo;re always in the know.</li>
+<li><strong>Easy-to-understand, well-structured, and engaging resources with step-by-step examples:</strong> Our resources are designed to be engaging and easy to follow, with step-by-step examples that help you grasp even the most complex concepts.</li>
+<li><strong>Fair pricing and great value for the resources provided:</strong> Invest in your future without breaking the bank. Gain highly valuable skills with an affordable &ldquo;all-access&rdquo; pricing model.</li>
+<li><strong>Strong community support, including networking opportunities and helpful guidance from instructors:</strong> Join our vibrant community of Python enthusiasts and receive valuable support, networking opportunities, and guidance from our expert instructors.</li>
+<li><strong>Accessible and useful for both beginners and experienced developers:</strong> Whether you&rsquo;re just starting out or already an experienced developer, our platform caters to all skill levels, helping you reach your Python goals.</li>
+<li><strong>Positive impact on personal and professional development, with users reporting increased proficiency and ability to apply their learning in real-world situations:</strong> Boost your career prospects and personal growth with our practical, real-world-focused tutorials.</li>
+</ul>
+<h2 class="h1 text-center my-5" id="how-real-python-works">How Real Python Works<a class="headerlink" href="#how-real-python-works" title="Permanent link"></a></h2>
+<p>Here&rsquo;s how our learning platform works. Master Python at your own pace with these features and comprehensive Python training resources:</p>
+<div class="row mx-md-n5">
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/members/icon-certificate.c36ce72e54d1.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/learning-paths/" class="stretched-link">Skills-Focused Learning Paths</a></h5>
+        <small>Guided study plans for beginner, intermediate, and advanced developers through the entire Python curriculum.</small>
+      </div>
+    </div>
+  </div>  
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/members/icon-bookmark.b215f437bfd4.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/search?kind=article" class="stretched-link">In-Depth Written Tutorials &amp; Books</a></h5>
+        <small>Keep your skills fresh and keep up with technology. With new content published weekly, you’re always up to date.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/members/icon-lessons.64ac6d33f9d3.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/search?kind=course&amp;kind=lesson" class="stretched-link">Step-by-Step Video Courses</a></h5>
+        <small>Follow along and see how it’s done with bite-sized video lessons. Subtitles and searchable transcripts included.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/members/icon-quiz.b95a15f1dff6.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/quizzes/" class="stretched-link">Interactive Quizzes</a></h5>
+        <small>Assess your skills and check your learning progress with quizzes and hands-on coding challenges.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/icons/podcast.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/podcasts/rpp/" class="stretched-link">Podcast Interviews with Experts</a></h5>
+        <small>Listen to in-depth interviews with open-source maintainers and industry experts to round out your knowledge.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/members/icon-meet.e16e110cf437.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/office-hours/" class="stretched-link">Live Workshops and Q&amp;A Sessions</a></h5>
+        <small>Join our weekly Real Python Office Hours and get your Python questions answered by experts from our team.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/icons/community.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/community/" class="stretched-link">Supportive Online Community</a></h5>
+        <small>Share your progress and find answers to your questions with peers and experts in our friendly learning community.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-3">
+    <div class="card border-0">
+      <div class="card-body p-0 text-center text-wrap-balance">
+        <figure class="embed-responsive embed-responsive-16by9 rounded border border-dark">
+          <img class="embed-responsive-item" style="object-fit: contain;" src="https://realpython.com/static/members/icon-download.9e081da63a76.svg">
+        </figure>
+        <h5 class="font-weight-bold"><a href="/join" class="stretched-link">Downloadable Sample Projects</a></h5>
+        <small>Commercial use of our example code and sample projects in your own programs is permitted.</small>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="h1 text-center my-5" id="what-youll-get-an-effective-skills-roadmap-to-clean-pythoniccode"><strong>What You&rsquo;ll Get:</strong> An Effective Skills Roadmap to Clean &amp; Pythonic&nbsp;Code<a class="headerlink" href="#what-youll-get-an-effective-skills-roadmap-to-clean-pythoniccode" title="Permanent link"></a></h2>
+<p>Ready to elevate your Python skills and become a highly sought-after developer? </p>
+<p>From beginners to experienced programmers, our expertly curated content will help you stay ahead of the curve in the ever-evolving world of Python development.</p>
+<p>Choose the option that best fits your needs:</p>
+<div class="card border rounded shadow-sm px-4 py-4 mt-5 mb-4 mx-md-n5">
+<h3 class="mt-0 text-wrap-pretty" id="real-python-membership-for-individuals"><strong>Real Python Membership</strong> (for Individuals)<a class="headerlink" href="#real-python-membership-for-individuals" title="Permanent link"></a></h3>
+<p><em>Our flagship product. An all-in-one Python learning platform that offers everything you need to master Python, regardless of your current skill level.</em></p>
+<ul class="icon-ul list-unstyled my-0 text-wrap-pretty">
+
+    <li class="ml-3 mr-md-3 mb-3"><span class="icon baseline icon-li text-success" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--check-circle"/></svg></span>A complete learning system, created by expert Pythonistas</li>
+
+    <li class="ml-3 mr-md-3 mb-3"><span class="icon baseline icon-li text-success" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--check-circle"/></svg></span>Master the skills that will help you succeed in your career and personal projects</li>
+
+    <li class="ml-3 mr-md-3 mb-3"><span class="icon baseline icon-li text-success" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--check-circle"/></svg></span>100% Python-focused learning resources</li>
+
+</ul>
+<p class="mb-0 text-right"><mark><a class="stretched-link" href="/books"><strong>View Membership Options →</strong></a></mark></p>
+</div>
+<div class="card border rounded shadow-sm px-4 py-4 mt-5 mb-4 mx-md-n5">
+<h3 class="mt-0 text-wrap-pretty" id="real-python-for-teams-business-accounts"><strong>Real Python for Teams</strong> (Business Accounts)<a class="headerlink" href="#real-python-for-teams-business-accounts" title="Permanent link"></a></h3>
+<p><em>Your one-stop-shop for online Python training. Give your team the knowledge, experience, and confidence they need to tackle any challenge.</em></p>
+<ul class="icon-ul list-unstyled my-0 text-wrap-pretty">
+
+    <li class="ml-3 mr-md-3 mb-3"><span class="icon baseline icon-li text-success" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--check-circle"/></svg></span>Empower your team with membership access through a single billing account</li>
+
+    <li class="ml-3 mr-md-3 mb-3"><span class="icon baseline icon-li text-success" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--check-circle"/></svg></span>Simplify team license management and progress analytics</li>
+
+    <li class="ml-3 mr-md-3 mb-3"><span class="icon baseline icon-li text-success" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#v4--check-circle"/></svg></span>Ensure team members stay up to date with the latest Python best practices and tools</li>
+
+</ul>
+<p class="mb-0 text-right"><mark><a class="stretched-link" href="/teams"><strong>Explore Business Plans →</strong></a></mark></p>
+</div>
+<div class="card border rounded shadow-sm px-4 py-4 mt-5 mb-4 mx-md-n5">
+<h3 class="mt-0 text-wrap-pretty" id="python-books-digital-paperback"><strong>Python Books</strong> (Digital &amp; Paperback)<a class="headerlink" href="#python-books-digital-paperback" title="Permanent link"></a></h3>
+<p><em>Learn offline and take your Python skills to the next level with books written and published by the Real Python Team.</em></p>
+<figure class=""><img loading="lazy" class="img-fluid " src="https://files.realpython.com/media/realpython-bookshelf-3.4f1e858984ca.jpg" width="1920" height="1080" srcset="/cdn-cgi/image/width=480,format=auto/https://files.realpython.com/media/realpython-bookshelf-3.4f1e858984ca.jpg 480w, /cdn-cgi/image/width=640,format=auto/https://files.realpython.com/media/realpython-bookshelf-3.4f1e858984ca.jpg 640w, /cdn-cgi/image/width=960,format=auto/https://files.realpython.com/media/realpython-bookshelf-3.4f1e858984ca.jpg 960w, /cdn-cgi/image/width=1920,format=auto/https://files.realpython.com/media/realpython-bookshelf-3.4f1e858984ca.jpg 1920w" sizes="(min-width: 1200px) 690px, (min-width: 780px) calc(-5vw + 669px), (min-width: 580px) 510px, calc(100vw - 30px)" alt="Python Books published by Real Python" data-asset="3540"/></figure>
+<p><strong>Python Basics: A Practical Introduction to Python&nbsp;3</strong><br>Go from beginner to intermediate in Python with this complete curriculum, showcasing the power of Python&nbsp;3.</p>
+<p><strong>Python Tricks: A Buffet of Awesome Python Features</strong><br>Discover Python’s best practices with simple examples and start writing even more beautiful and Pythonic&nbsp;code.</p>
+<p><strong>CPython Internals: Your Guide to the Python 3 Interpreter</strong><br>Unlock the inner workings of the Python language and compile the Python interpreter from source code with this technical deep dive.</p>
+<p class="mb-0 text-right"><mark><a class="stretched-link" href="/books"><strong>Browse the Book Store →</strong></a></mark></p>
+</div>
+<h2 class="h1 text-center my-5" id="what-our-customers-say">What Our Customers Say<a class="headerlink" href="#what-our-customers-say" title="Permanent link"></a></h2>
+<p><mark>“Real Python is the most professional Python tutorial site.”</mark><br>
+&mdash; <strong>David Dansby</strong>,<br>Data Engineer at Atlassian</p>
+<p class="text-right my-4"><mark>“I came up to speed incredibly fast”</mark><br> 
+&mdash; <strong>Douglas Ortego</strong>,<br>Software Engineer</p>
+<p><mark>“I am really enjoying Real Python. There is so much to learn and do, it’s just incredible! Plus, the tutorials really work as taught.”</mark><br>
+&mdash; <strong>Philip Moose</strong>,<br>Pythonista</p>
+<p class="text-right my-4"><mark>“A fully integrated learning system [&hellip;]<br> and a community for camaraderie”</mark><br>
+&mdash; <strong>Jamison Morse</strong>,<br>Managing Principal</p>
+<p><mark>“I&rsquo;m always in there, no matter how much I think I know”</mark><br>
+&mdash; <strong>Hugh Tipping</strong>,<br>Senior Infrastructure Engineer</p>
+<p class="text-right my-4"><mark>“Very well designed, so that you<br>can choose how to approach things yourself”</mark><br>
+&mdash; <strong>Leona Rodenkirchen</strong>,<br>Theoretical Physics M.Sc. Student </p>
+<p><mark>“My biggest win so far is having the confidence in myself<br>to tackle new projects that I would&rsquo;ve set aside before”</mark><br>
+&mdash; <strong>Christopher Scogin</strong>,<br>Cloud Cyber Defence Analyst</p>
+<p class="text-right my-4"><mark>“It is a fantastic resource and<br>it&rsquo;s structured very well”</mark><br>
+&mdash; <strong>Edward Wright</strong>,<br>Senior Systems Developer</p>
+<p><mark>“There&rsquo;s so much information there and<br>it&rsquo;s delivered really effectively”</mark><br>
+&mdash; <strong>Brian Patrick O&rsquo;Sullivan</strong>,<br>Airline Revenue Management</p>
+<p class="text-right my-4"><mark>“The explanations are thorough<br>and lucid and they work<br>for anybody at any stage”</mark><br>
+&mdash; <strong>Mandy Wong</strong>,<br>API and Integration Specialist</p>
+<p class="text-center"><a href="/learner-stories"><strong>More learner success stories&nbsp;→</strong></a></p>
+<h2 class="h1 text-center my-5" id="not-sure-yet">Not Sure Yet?<a class="headerlink" href="#not-sure-yet" title="Permanent link"></a></h2>
+<p>No problem! Here&rsquo;s a great way to start&mdash;sign up for our free <em>Python Tricks</em> email series (341,217 subscribers and counting) and get short, actionable coding tips delivered to your inbox:</p>
+<div class="card mt-4 mb-4 bg-secondary">
+  <p class="card-header h3 text-center bg-light">🐍 Python Tricks 💌</p>
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <p>Get a short &amp; sweet <strong>Python Trick</strong> delivered to your inbox every couple of days. No spam ever. Unsubscribe any time. Curated by the Real Python team.</p>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <img class="img-fluid rounded mb-3" src="https://files.realpython.com/media/pytrick-dict-merge.4201a0125a5e.png" alt="Python Tricks Dictionary Merge">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <form class="col-12" action="/optins/process/" method="post">
+          <input type="hidden" name="slug" value="python-tricks-wide">
+          <div class="form-group">
+            <input name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required>
+          </div>
+          <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">Send Me Python Tricks »</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="text-center small my-4"><a href="https://feedback.realpython.com/realpython-com/?d=eyJwIjoicmVhbHB5dGhvbi1jb20iLCJzaWciOiJOfHYqdmttQHlgZUdMT3YlI216ZDV9cmspSCZJTyNTS2YjZy11T2tWIiwidCI6IlN0YXJ0IEhlcmUgUGFnZSIsInUiOiJodHRwczovL3JlYWxweXRob24uY29tL3N0YXJ0LWhlcmUvIn0=" target="_blank"><i class="fa fa-commenting-o mr-1" aria-hidden="true"></i>Was this page helpful? Share your feedback</a></p>
+  </div>
+
+    </div>
+
+  </div>
+
+    </div>
+
+    
+    
+
+    
+    
+      
+    
+
+    
+      
+<footer class="footer">
+  <div class="container">
+    
+
+    <p class="text-center text-muted w-75 mx-auto">© 2012–2024 Real&nbsp;Python&nbsp;⋅ <a href="/newsletter/">Newsletter</a>&nbsp;⋅ <a href="/podcasts/rpp/">Podcast</a>&nbsp;⋅ <a href="https://www.youtube.com/realpython">YouTube</a>&nbsp;⋅ <a href="https://twitter.com/realpython">Twitter</a>&nbsp;⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a>&nbsp;⋅ <a href="https://www.instagram.com/realpython/">Instagram</a>&nbsp;⋅ <a href="/">Python&nbsp;Tutorials</a>&nbsp;⋅ <a href="/search">Search</a>&nbsp;⋅ <a href="/privacy-policy/">Privacy Policy</a>&nbsp;⋅ <a href="/energy-policy/">Energy Policy</a>&nbsp;⋅ <a href="/sponsorships/">Advertise</a>&nbsp;⋅ <a href="/contact/">Contact</a><br><span class="icon baseline text-color-red" aria-hidden="true"><svg aria-hidden="true"><use href="/static/icons.654fd44c148d.svg#solid--heart"/></svg></span> Happy Pythoning!</p>
+  </div>
+</footer>
+
+    
+
+    
+
+    
+    <script>
+      (function() {
+        var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+        if (!isAndroid) {
+          return;
+        }
+
+        var styles = `
+        @font-face {
+          font-family: 'DejaVu Sans Mono';
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+          src: url('/static/mfonts/dejavu-sans-mono.33f00225f915.woff2') format('woff2'),
+               url('/static/mfonts/dejavu-sans-mono.0da77d3739f3.woff') format('woff'),
+               url('/static/mfonts/dejavu-sans-mono.c2356fc49835.ttf') format('truetype');
+        }
+        code, kbd, pre, samp {
+          font-family: 'DejaVu Sans Mono', monospace;
+        }
+        `
+
+        var styleSheet = document.createElement("style")
+        styleSheet.type = "text/css"
+        styleSheet.innerText = styles
+        document.head.appendChild(styleSheet)
+      })();
+    </script>
+
+    
+    
+    <script src="/static/jquery.min.2c872dbe60f4.js"></script>
+    <script src="/static/popper.min.47dc3aaf2942.js"></script>
+    <script src="/static/bootstrap.min.a3b2689424c3.js"></script>
+
+    
+    
+
+    <script>
+    (function() {
+      document.querySelectorAll(".js-search-form-submit").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.currentTarget.parentElement.submit();
+        })
+      });
+    })();
+    </script>
+    <script src="/static/frontend/reader/codeblock.5c8399b698d9.js" async></script>
+    <script src="/static/frontend/reader/lightbox.5387b5824229.js" async></script>
+    <script src="/static/frontend/reader/platforms-ui.b11202dc6079.js" async></script>
+    
+
+    
+
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    <script src="/static/frontend/optins/optins.9b3f3d317bfa.js" async></script>
+    <script src="/static/frontend/search/autocomplete.eb8dcedc5710.js" async></script>
+
+    
+
+    
+
+    
+
+    
+
+    
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2220911568135371');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2220911568135371&ev=PageView&noscript=1"
+/></noscript>
+
+
+    
+
+    
+
+  <script>(function(){if (!document.body) return;var js = "window['__CF$cv$params']={r:'888dc188590e7309',t:'MTcxNjU1ODYzOS43MDgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>
