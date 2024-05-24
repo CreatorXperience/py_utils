@@ -5,6 +5,7 @@ import re
 import math
 import random
 import statistics
+import Decorator
 # import smtplib
 import glob
 import sys
@@ -76,5 +77,14 @@ def say_whee():
     return 5
 # say_whee = sum_total(say_whee)
 print(say_whee())
+
+@Decorator.do_twice
+def print_total(greeting):
+    print(greeting)
+    return greeting
+
+print(print_total("Hello Motherfucker"))
+
+print(help(Decorator))
 
 sys.exit()
