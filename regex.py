@@ -137,3 +137,32 @@ print(next(a))
 print(next(a))
 print(next(a))
 print(next(a))
+
+line = ''' 127.0.0.1 - rj [13/Nov/2019:14:43:30] "POST HTTP/1.0" 200
+127.0.0.1 - rj [13/Nov/2019:14:43:30] "DELETE HTTP/1.0" 404
+127.0.0.1 - rj [13/Nov/2019:14:43:30] "GET HTTP/1.0" 301
+127.0.0.1 - rj [13/Nov/2019:14:43:30] "PATCH HTTP/1.0" 200
+127.0.0.1 - rj [13/Nov/2019:14:43:30] "POST HTTP/1.0" 500
+127.0.0.1 - rj [13/Nov/2019:14:43:30] "GET HTTP/1.0" 200
+ '''
+
+ip = re.search(r"(?P<IP>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", line)
+dates = re.search(r'\[(?P<DATE>\d{1,2}/\w{3}/\d{4}:\d{2}:\d{2}:\d{2})\]', line)
+print(dates.group("DATE"))
+crud_type = re.search(r"\"(?P<TYPE>\w+\s\w+/\d\.\d)\"", line)
+status = re.search(r"(?P<STATUS>\s\d{3})",line)
+print(ip.group("IP"))
+print(crud_type.group("TYPE"))
+print(status.group("STATUS"))
+
+r = r"(?P<IP>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"
+r +=   r" -\s(?P<USER>\w+)"
+r += r" \[(?P<DATE>\d{1,2}/\w{3}/\d{4}:\d{2}:\d{2}:\d{2})\]"
+r += r" \"(?P<TYPE>\w+\s\w+/\d\.\d)\""
+r += r"(?P<STATUS>\s\d{3})"
+
+print(r)
+
+reiter = re.finditer(r,line)
+for it in reiter:
+    print(it.group("STATUS"))
