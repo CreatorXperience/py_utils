@@ -157,7 +157,7 @@ print(status.group("STATUS"))
 
 r = r"(?P<IP>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"
 r +=   r" -\s(?P<USER>\w+)"
-r += r" \[(?P<DATE>\d{1,2}/\w{3}/\d{4}:\d{2}:\d{2}:\d{2})\]"
+r += r" \[(?P<DATE>\d{1,2}/\w{3}/\d{4}:\d{2}:\d{2}:\d{2})\]" 
 r += r" \"(?P<TYPE>\w+\s\w+/\d\.\d)\""
 r += r"(?P<STATUS>\s\d{3})"
 
