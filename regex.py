@@ -6,6 +6,8 @@
     """
 import re
 import sys
+import os
+import pathlib
 recipient = '''Ezra Koenig <ekoenig@vpwk.come>,
 ...: Rostam Batmanglij <rostam@vpwk.com>,
 ...: Chris Tomson <ctomson@vpwk.com,
@@ -166,3 +168,14 @@ print(r)
 reiter = re.finditer(r,line)
 for it in reiter:
     print(it.group("STATUS"))
+
+
+peter = pathlib.Path("/home/codeknight/pysetup/files.py")
+print(peter.read_text("utf-8"))
+
+for parent_path,directories, files in os.walk("/home/codeknight"):
+    for file in files:
+        path_files = os.path.join(parent_path, file)
+        size = os.path.getsize(path_files)
+        atime = os.path.getatime(path_files)
+        print(atime,size)
