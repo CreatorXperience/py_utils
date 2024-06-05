@@ -59,6 +59,15 @@ def debug(callback):
 
 
 
+def say_something():
+    greet = "Hello World"
+    if __name__ == "__main__":
+        print(greet)
+        print("from the CLI")
+    else:
+        print("from the script")
+
+say_something()
 
 
 
