@@ -176,9 +176,6 @@ print(peter.read_text("utf-8"))
 
 print(help(sys.version_info))
 
-
-
-
 # for parent_path,directories, files in os.walk("/home/codeknight"):
 #     for file in files:
 #         path_files = os.path.join(parent_path, file)
