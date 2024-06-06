@@ -52,88 +52,106 @@
 // add(1,2,3,5)
 
 
-class Counter {
-    constructor(iterable){
-    this.iterable =  iterable
-    this.map = new Map()
-}
+// class Counter {
+//     constructor(iterable){
+//     this.iterable =  iterable
+//     this.map = new Map()
+// }
 
-count(){
-    this.iterable.map((item)=> {
-        let is_key_exist = this.map.has(item)
-        if(is_key_exist){
-            return this.update(item)
-        }
-       this.create(item)
-    })
+// count(){
+//     this.iterable.map((item)=> {
+//         let is_key_exist = this.map.has(item)
+//         if(is_key_exist){
+//             return this.update(item)
+//         }
+//        this.create(item)
+//     })
 
-    return this
+//     return this
+//     }
+
+// update(item){
+//         let exist_item = this.map.get(item) 
+//          exist_item[item] += 1
+//          this.map.set(item, exist_item)
+//          return
+// }
+
+// create(item){
+//         let obj = {}
+//         obj[item] = 1
+//         this.map.set(item , obj)
+// }
+
+// copy(){
+//     let clone = this.map
+//     return clone
+// }
+
+// keys(){
+//     return this.map.keys()
+// }
+
+// clear(){
+//     return this.map.clear()
+// }
+// popitem(key){
+//     return this.map.delete(key)
+// }
+
+//  get increment(){
+// return this.map.values()
+//  }
+// }
+
+
+
+// const counter = new Counter([1,{ite:"hello"},2,3,4,4,4,5,{ite:"hello"}, "hi",6])
+
+// // javascript code
+// function join(x, list = []){
+//     list.push(x)
+//     return list
+//   }
+
+//   console.log(join(20)) // returns [20]
+//   console.log(join(50)) // return [50]
+//   console.log(join(30)) // return [30]
+
+
+
+
+
+//   function print_total(){
+//     let avg  = 5
+
+
+//     function print(){
+//         let expenses = 2000
+//         let amount  = 5000
+//         return (amount - 2000 )+avg
+//     }
+//     return print
+//   }
+
+
+//   let get_total = print_total()
+// console.log(get_total())
+
+
+function decorator(decor){
+    function decorWrappper(args){
+        console.log("Greeting you now !")
+        decor(args)
     }
 
-update(item){
-        let exist_item = this.map.get(item) 
-         exist_item[item] += 1
-         this.map.set(item, exist_item)
-         return
-}
-
-create(item){
-        let obj = {}
-        obj[item] = 1
-        this.map.set(item , obj)
-}
-
-copy(){
-    let clone = this.map
-    return clone
-}
-
-keys(){
-    return this.map.keys()
-}
-
-clear(){
-    return this.map.clear()
-}
-popitem(key){
-    return this.map.delete(key)
-}
-
- get increment(){
-return this.map.values()
- }
+    return decorWrappper
 }
 
 
+function decorate(args){
+    console.log(args)
+}
 
-const counter = new Counter([1,{ite:"hello"},2,3,4,4,4,5,{ite:"hello"}, "hi",6])
-
-// javascript code
-function join(x, list = []){
-    list.push(x)
-    return list
-  }
-
-  console.log(join(20)) // returns [20]
-  console.log(join(50)) // return [50]
-  console.log(join(30)) // return [30]
-
-
-
-
-
-  function print_total(){
-    let avg  = 5
-
-
-    function print(){
-        let expenses = 2000
-        let amount  = 5000
-        return (amount - 2000 )+avg
-    }
-    return print
-  }
-
-
-  let get_total = print_total()
-console.log(get_total())
+decorate = decorator(decorate)
+decorate("Hello boss")
