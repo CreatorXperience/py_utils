@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+import argparse
+import os
+import sys
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="GIT: the Stupid Content Tracker")
+
+    parser.add_argument("-s", "--status", help="Prints GIT status", action="store_true")
+
+    subparser = parser.add_subparsers(dest="func")
+
+    gitStash = subparser.add_parser("stash", help="stash Git command")
+
+    gitStash.add_argument("command", choices=["list", "remove"])
+
+    gitStash.add_argument("-b", "--branch", help="stash current branch", default="true")
+
+    commit =  subparser.add_parser("commit", help="Commit current Branch")
+
+    commit.add_argument("-m", "--message", help="Commit messages", default="First Commit")
+
+# commit.add_argument("message", help="Your commit message")
+
+    def commitMessage():
+        print(f"#### committed {os.listdir()}  {len(os.listdir())} files ######")
+
+    def stash(branch):
+
+        print(f"stashed everything on {branch}")
+
+    args  =  parser.parse_args()
+
+    if args.func == "commit":
+        commitMessage()
+    elif args.status:
+        print("Clean working directory")
+    elif args.func == "stash":
+        if args.branch:
+            print(args.branch)
+            stash(args.branch)
+        if args.command == "list":
+            print(["stached 1", "stached 2", "stached 3", "stached 4", "stached 5"])
+
+    print(sys.path)

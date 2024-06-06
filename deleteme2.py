@@ -1,17 +1,30 @@
 #!/usr/bin/python3
+
 import argparse
 
-parser = argparse.ArgumentParser(description="ECHO: python utility for displaying message on stdout \n SYNOPSIS: ECHO [MESSAGE] [OPTION]")
-print(parser)
-parser.add_argument("message", help="Add your message")
-parser.add_argument("--twice", "-t", help="print message twice", action="store_true")
-args = parser.parse_args()
-
-if args.message:
-	print(args.message)
-	if args.twice:
-		print(args.message)
-
-
-
-
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Top Level command")
+    parser.add_argument("-t", "--twice", help="Print twice", action="store_true")
+    subparser = parser.add_subparsers(dest="func")
+    react = subparser.add_parser("react-app")
+    react.add_argument("renderer", choices=["list", "table"])
+    react.add_argument("-c", "--check", help="check react app", action="store_true")
+    angular = subparser.add_parser("angular")
+    angular.add_argument("-c", "--check", help="check angular app", action="store_true")
+    args = parser.parse_args()
+    if args.twice:
+        yo= [print("prints twice") for x in range(0,2)]
+    if args.func == "react-app":
+        if args.check:
+            print("good working react app")
+        elif args.renderer == "list":
+            print(["react-dom", "react-fiber"])
+        elif args.renderer == "table":
+            print("no table for this data")
+        else:
+            print("bad app")
+    elif args.func == "angular":
+        if args.check:
+            print("good working angular app")
+        else:
+            print("Garbaage command check help with --help")
