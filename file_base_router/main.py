@@ -1,14 +1,11 @@
 #!/home/codeknight/pysetup/.venv/bin/python3
 """
+
    FILE ROUTER:  CLI tool for file based routing
 
 """
-import os
 from custom_parser import Parser
 from custom_router import Router
-
-# import pathlib
-# import json
 
 
 parser = Parser()
@@ -20,7 +17,8 @@ register = parser.use_parser()
 @register
 def add_argument(option):
     """
-    Add -c or --change to change router database
+
+    Add's custom argument to parser object
 
     """
 
@@ -30,7 +28,6 @@ def add_argument(option):
     return obj
 
 
-home_dir = os.environ["HOME"]
 add_argument(
     {
         "opt": "-c",
@@ -41,6 +38,7 @@ add_argument(
 )
 
 
+@register
 @register
 def add_network_parser():
     subparser = parser.parser.add_subparsers(dest="func")
@@ -57,14 +55,6 @@ def add_network_parser():
 
 add_network_parser()
 arguments = parser.parser.parse_args()
-
-
-# def change(args):
-#     """
-#     Change monitored directory
-
-#     """
-#     monitor_dir(args)
 
 router = Router(arguments.change)
 if arguments.func == "network":

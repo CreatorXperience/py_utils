@@ -4,10 +4,13 @@
 """
 
 import os
+import json
+from config_database import Database
 
 
 class Router:
     """
+
     Instantaiate a router object
 
     """
@@ -15,6 +18,7 @@ class Router:
     def __init__(self, dir_path):
 
         self.dir = os.path.expanduser(dir_path)
+        self.database = Database(self.dir)
 
     def monitor_dir(self):
         """
@@ -25,12 +29,6 @@ class Router:
         dir_exists = os.path.exists(self.dir)
         if not dir_exists:
             print("Setting up database")
-            os.mkdir(self.dir)
-            default_file_path = "rconfig.json"
-            with open(
-                os.path.join(self.dir, default_file_path), "w", encoding="utf-8"
-            ) as path:
-                self.dir = self.dir
-                print(self.dir, path)
+            self.database.update_config()
         else:
             pass
