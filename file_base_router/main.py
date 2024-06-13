@@ -68,5 +68,5 @@ if arguments.func == "network":
         print(arguments.directory)
 
 database.create_database()
-router = Router(database.config["database"])
+router = Router(database)
 router.monitor_dir()

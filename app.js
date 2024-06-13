@@ -15,10 +15,32 @@
 
 
 
+class  Obj {
+    constructor(name, surname){
+        this.name = name;
+        this.surname = surname;
+    }
+    do_this(){
+        console.log("do this")
+    }
+}
 
+class Objx extends Obj {
+    constructor(name,surname,hobby){
+        super(name,surname)
+        this.hobby = hobby
+    }
+
+    do_this(){
+        super.do_this()
+        console.log("do something")
+    }
+}
 // console.log(5000 in arr)
 
 
+ox = new Objx("peter", "kelvin", "reading")
+ox.do_this()
 
 // //clone
 // clone = arr
