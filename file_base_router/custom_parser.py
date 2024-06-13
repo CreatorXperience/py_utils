@@ -1,8 +1,19 @@
+""" 
+
+Parser: Default Parser for CLI 
+
+"""
+
 import argparse
 import functools
 
 
 class Parser:
+    """
+
+    Instantiate a Parser Object
+
+    """
 
     def __init__(self):
         self.parser = argparse.ArgumentParser(description="File Based Router")

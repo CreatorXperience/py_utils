@@ -4,9 +4,11 @@
    FILE ROUTER:  CLI tool for file based routing
 
 """
-from custom_parser import Parser
-from custom_router import Router
 
+from os import path
+from custom_parser import Parser
+from config_database import Database
+from custom_router import Router
 
 parser = Parser()
 
@@ -33,14 +35,16 @@ add_argument(
         "opt": "-c",
         "abbr": "--change",
         "help": "Create router database",
-        "default": "~/.router",
+        "default": path.expanduser("~/.router"),
     }
 )
 
 
 @register
-@register
 def add_network_parser():
+    """
+    Add's network  Subparser to parser object
+    """
     subparser = parser.parser.add_subparsers(dest="func")
     network = subparser.add_parser("network")
     network.add_argument("-c", "--create", help="Create a new network")
@@ -56,10 +60,13 @@ def add_network_parser():
 add_network_parser()
 arguments = parser.parser.parse_args()
 
-router = Router(arguments.change)
+database = Database(arguments.change)
 if arguments.func == "network":
     if arguments.create:
         print(arguments.create)
     if arguments.directory:
         print(arguments.directory)
+
+database.create_database()
+router = Router(database.config["database"])
 router.monitor_dir()
