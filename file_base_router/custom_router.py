@@ -22,20 +22,31 @@ class WatchFSEventHandler(events.FileSystemEventHandler):
     def on_created(self, event: events.FileSystemEvent) -> None:
         if event.is_directory:
             print(f"directory created ##### {event.src_path}")
-            self.database.config["d_count"] += 1
-            self.database.update_config()
-            return super().on_created(event)
-        print(f"file created ##### {event.src_path}")
-        self.database.config["f_count"] += 1
+            self.database.config = {
+                **self.database.config,
+                "d_count": self.database.config["d_count"] + 1,
+            }
+        else:
+            print(f"file created ##### {event.src_path}")
+            self.database.config = {
+                **self.database.config,
+                "f_count": self.database.config["f_count"] + 1,
+            }
         self.database.update_config()
         return super().on_created(event)
 
     def on_deleted(self, event: events.FileSystemEvent) -> None:
         print(f"file deleted ######## {event.src_path}")
         if event.is_directory:
-            self.database.config["d_count"] -= 1
+            self.database.config = {
+                **self.database.config,
+                "d_count": self.database.config["d_count"] - 1,
+            }
         else:
-            self.database.config["f_count"] -= 1
+            self.database.config = {
+                **self.database.config,
+                "f_count": self.database.config["f_count"] - 1,
+            }
 
         self.database.update_config()
         return super().on_deleted(event)
@@ -50,7 +61,7 @@ class Router:
 
     def __init__(self, database: Database):
         self.database = database
-        self.dir_path = database.config["database"]
+        # self.dir_path = database.config("database")
 
     def monitor_dir(self):
         """
@@ -59,7 +70,8 @@ class Router:
         """
         observer = observers.Observer()
         event_handler = WatchFSEventHandler(self.database)
-        observer.schedule(event_handler, path=self.dir_path, recursive=True)
+        obj = self.database.config
+        observer.schedule(event_handler, path=obj["database"], recursive=True)
         observer.start()
 
         try:
