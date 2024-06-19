@@ -19,6 +19,8 @@ class Database:
             "file": path.join(database, "rconfig.json"),
             "d_count": 0,
             "f_count": 0,
+            "destination": "",
+            "destinations": [],
         }
 
     def create_database(self):
@@ -33,6 +35,7 @@ class Database:
                 json_data = json.load(config_f)
                 self._config["d_count"] = json_data["d_count"]
                 self._config["f_count"] = json_data["f_count"]
+                self.config["destinations"] = json_data["destinations"]
 
         else:
             mkdir(self._config["database"])
