@@ -6,12 +6,12 @@
 """
 
 from os import path
+from pprint import pprint
 import shutil
-import sys
 from custom_parser import Parser
 from config_database import Database
 from custom_router import Router
-from pprint import pprint
+from numba import jit
 
 
 parser = Parser()
@@ -70,8 +70,22 @@ def action():
     act.add_argument("file", help="File to move")
 
 
+# call parsers
 add_network_parser()
 action()
+
+
+@jit
+@register
+def bind_criteria():
+    c_parser = subparser.add_parser("criteria")
+    c_parser.add_argument(
+        "-n", "--new", help="create a new criteria", action="store_true"
+    )
+    c_parser.add_argument("type", help="criteria type", choices=["ext4", "metadata"])
+    c_parser.add_argument("destination", help="specify an existing destination")
+
+
 arguments = parser.parser.parse_args()
 
 database = Database(arguments.change)
@@ -79,41 +93,22 @@ database.create_database()
 
 router = Router(database)
 
+
 if arguments.func == "destination":
     if arguments.create:
-        db_clone = database.config["destinations"]
+        database.config.copy()
         if path.exists(arguments.create):
-            for index, item in enumerate(database.config["destinations"]):
-
-                if item == arguments.create:
-                    print("path already exist")
-                    db_clone.pop(index)
-                    print(db_clone)
-                    database.config = {
-                        **database.config,
-                        "destinations": db_clone,
-                    }
-
+            dest_clone = list(
+                filter(
+                    lambda val: val != arguments.create, database.config["destinations"]
+                )
+            )
             database.config = {
                 **database.config,
-                "destinations": [*database.config["destinations"], arguments.create],
+                "destinations": [*dest_clone, arguments.create],
             }
-            pprint(database.config)
             database.update_config()
-        # net_path = path.join(database.config["networks"], arguments.create)
-        # print(arguments.create)
-        # os.mkdir(net_path)
-
-    # if arguments.directory:
-    #     net = input("destination: ")
-    #     net_path = path.join(database.config["destination"], net)
-    #     if os.path.exists(path.join(path.dirname(net_path), net)):
-    #         print("destination exist")
-    #         os.mkdir(
-    #             path.join(path.dirname(net_path), path.join(net, arguments.directory))
-    #         )
-
-    #     print(arguments.directory)
+            pprint(database.config)
 
 elif arguments.func == "action":
     if path.exists(path.abspath(arguments.file)):
