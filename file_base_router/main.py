@@ -43,19 +43,19 @@ add_argument(
 )
 
 
-@register
-def add_network_parser():
-    """
-    Add's network  Subparser to parser object
-    """
-    network = subparser.add_parser("destination")
-    network.add_argument("-c", "--create", help="Create a new destination")
-    network.add_argument(
-        "-s", "--show-net", help="Display all networks", action="store_true"
-    )
-    network.add_argument(
-        "-S", "--show-dir", help="Display all directories", action="store_true"
-    )
+# @register
+# def add_dest_parser():
+#     """
+#     Add's network  Subparser to parser object
+#     """
+#     network = subparser.add_parser("destination")
+#     network.add_argument("-c", "--create", help="Create a new destination")
+#     network.add_argument(
+#         "-s", "--show-net", help="Display all networks", action="store_true"
+#     )
+#     network.add_argument(
+#         "-S", "--show-dir", help="Display all directories", action="store_true"
+#     )
 
 
 @register
@@ -82,12 +82,14 @@ def bind_criteria():
     c_parser.add_argument(
         "-n", "--new", help="create a new criteria", action="store_true"
     )
-    c_parser.add_argument("type", help="criteria type", choices=["ext4", "metadata"])
+    c_parser.add_argument(
+        "type", help="criteria type", choices=["ext4", "ext5", "metadata"]
+    )
     c_parser.add_argument("destination", help="specify an existing destination")
 
 
 # call parsers
-add_network_parser()
+# add_dest_parser()
 action()
 bind_criteria()
 
@@ -99,24 +101,7 @@ database.create_database()
 
 router = Router(database)
 
-
-if arguments.func == "destination":
-    if arguments.create:
-        database.config.copy()
-        if path.exists(arguments.create):
-            dest_clone = list(
-                filter(
-                    lambda val: val != arguments.create, database.config["destinations"]
-                )
-            )
-            database.config = {
-                **database.config,
-                "destinations": [*dest_clone, arguments.create],
-            }
-            database.update_config()
-            pprint(database.config)
-
-elif arguments.func == "action":
+if arguments.func == "action":
     if path.exists(path.abspath(arguments.file)):
         print(database.config)
         try:
@@ -125,6 +110,38 @@ elif arguments.func == "action":
             router.fs_handler.on_moved(move_event)
         except shutil.Error as Fe:
             print("file already exists")
+elif arguments.func == "criteria":
+    if arguments.new:
+        pass
+    if arguments.type and arguments.destination:
+        dest_clone = list(
+            filter(
+                lambda val: val["Dest"] != arguments.destination,
+                database.config["criteria"],
+            )
+        )
+        database.config = {
+            **database.config,
+            "criteria": [
+                *dest_clone,
+                {"Ext": arguments.type, "Dest": arguments.destination},
+            ],
+        }
+        print(arguments.type)
+    if arguments.destination:
+        if path.exists(arguments.destination):
+            dest_clone = list(
+                filter(
+                    lambda val: val != arguments.destination,
+                    database.config["destinations"],
+                )
+            )
+            database.config = {
+                **database.config,
+                "destinations": [*dest_clone, arguments.destination],
+            }
+            database.update_config()
+            pprint(database.config)
 
 
 router.monitor_dir()

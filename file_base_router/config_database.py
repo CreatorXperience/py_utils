@@ -21,18 +21,7 @@ class Database:
             "f_count": 0,
             "destination": "",
             "destinations": [],
-            "criteria": [
-                {
-                    "destination": "",
-                    "Ext": "",
-                    "Size": 0,
-                    "Blocks": 0,
-                    "Inode": 0,
-                    "Atime": False,
-                    "Mtime": False,
-                    "Ctime": False,
-                }
-            ],
+            "criteria": [],
         }
 
     def create_database(self):
@@ -48,6 +37,7 @@ class Database:
                 self._config["d_count"] = json_data["d_count"]
                 self._config["f_count"] = json_data["f_count"]
                 self.config["destinations"] = json_data["destinations"]
+                self.config["criteria"] = json_data["criteria"]
 
         else:
             mkdir(self._config["database"])
