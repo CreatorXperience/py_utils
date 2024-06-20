@@ -5,7 +5,6 @@ Configure JSON
 
 from os import mkdir, path, chmod
 import json
-from numba import jit
 
 
 class Database:
@@ -24,15 +23,14 @@ class Database:
             "destinations": [],
             "criteria": [
                 {
-                    "ext": "",
-                    "metadata": {
-                        "Size": 0,
-                        "Blocks": 0,
-                        "Inode": 0,
-                        "Atime": False,
-                        "Mtime": False,
-                        "Ctime": False,
-                    },
+                    "destination": "",
+                    "Ext": "",
+                    "Size": 0,
+                    "Blocks": 0,
+                    "Inode": 0,
+                    "Atime": False,
+                    "Mtime": False,
+                    "Ctime": False,
                 }
             ],
         }

@@ -11,7 +11,6 @@ import shutil
 from custom_parser import Parser
 from config_database import Database
 from custom_router import Router
-from numba import jit
 
 
 parser = Parser()
@@ -70,20 +69,27 @@ def action():
     act.add_argument("file", help="File to move")
 
 
-# call parsers
-add_network_parser()
-action()
-
-
-@jit
 @register
 def bind_criteria():
+    """
+
+    Bind criteria with destination e.g defines the critieria all
+
+    files must conform to before routing files to destination
+
+    """
     c_parser = subparser.add_parser("criteria")
     c_parser.add_argument(
         "-n", "--new", help="create a new criteria", action="store_true"
     )
     c_parser.add_argument("type", help="criteria type", choices=["ext4", "metadata"])
     c_parser.add_argument("destination", help="specify an existing destination")
+
+
+# call parsers
+add_network_parser()
+action()
+bind_criteria()
 
 
 arguments = parser.parser.parse_args()
