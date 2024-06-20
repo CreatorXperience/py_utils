@@ -83,9 +83,13 @@ def bind_criteria():
         "-n", "--new", help="create a new criteria", action="store_true"
     )
     c_parser.add_argument(
-        "type", help="criteria type", choices=["ext4", "ext5", "metadata"]
+        "ctype",
+        help="criteria type",
+        choices=["Ext", "atime", "ctime", "min-size", "max-size", "uid", "gid"],
     )
-    c_parser.add_argument("destination", help="specify an existing destination")
+
+    c_parser.add_argument("cvalue", help="value for your type")
+    c_parser.add_argument("destination", help="specify an existing destination ")
 
 
 # call parsers
@@ -113,21 +117,29 @@ if arguments.func == "action":
 elif arguments.func == "criteria":
     if arguments.new:
         pass
-    if arguments.type and arguments.destination:
+    if arguments.ctype and arguments.destination and arguments.cvalue:
+        obj = list(
+            filter(
+                lambda val: val["Dest"] == arguments.destination,
+                database.config["criteria"],
+            )
+        )
         dest_clone = list(
             filter(
                 lambda val: val["Dest"] != arguments.destination,
                 database.config["criteria"],
             )
         )
-        database.config = {
-            **database.config,
-            "criteria": [
-                *dest_clone,
-                {"Ext": arguments.type, "Dest": arguments.destination},
-            ],
-        }
-        print(arguments.type)
+
+        if len(obj) > 0:
+            obj[0][arguments.ctype] = arguments.cvalue
+            database.config = {**database.config, "criteria": [*dest_clone, obj[0]]}
+            pprint("okay")
+        elif len(obj) == 0:
+            new_obj = {arguments.ctype: arguments.cvalue, "Dest": arguments.destination}
+            database.config = {**database.config, "criteria": [*dest_clone, new_obj]}
+
+        print(arguments.ctype)
     if arguments.destination:
         if path.exists(arguments.destination):
             dest_clone = list(
@@ -143,5 +155,5 @@ elif arguments.func == "criteria":
             database.update_config()
             pprint(database.config)
 
-
+print(list({"hi": "helllo", "boy": "peter"}.keys()))
 router.monitor_dir()
