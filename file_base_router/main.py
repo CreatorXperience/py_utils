@@ -53,7 +53,13 @@ def action():
     act.add_argument(
         "-m",
         "--move_to",
-        help="Move Content to database",
+        help="Move Content to destination",
+    )
+
+    act.add_argument(
+        "-r",
+        "--retrieve",
+        help="retrieve file from destination",
     )
     act.add_argument("file", help="File to move")
 
@@ -96,15 +102,17 @@ router = Router(database)
 
 if arguments.func == "action":
     if path.exists(path.abspath(arguments.file)):
-        # try:
-        #     shutil.move(path.abspath(arguments.file), dst=database.config["database"])
-        #     move_event = router.move_event(path.abspath(arguments.file))
-        #     router.fs_handler.on_moved(move_event)
-        # except shutil.Error as Fe:
-        #     print("file already exists")
-        pass
+        try:
+            shutil.copy(path.abspath(arguments.file), dst=database.config["database"])
+            move_event = router.move_event(path.abspath(arguments.file))
+            router.fs_handler.on_moved(move_event)
+        except shutil.Error as Fe:
+            print("file already exists")
     if arguments.move_to:
         router.move_file(arguments.move_to, arguments.file)
+    if arguments.retrieve:
+        pass
+        # router.retrieve(arguments.retrieve, arguments.file)
 
 elif arguments.func == "criteria":
     if arguments.new:
@@ -147,5 +155,4 @@ elif arguments.func == "criteria":
             database.update_config()
             pprint(database.config)
 
-print(list({"hi": "helllo", "boy": "peter"}.keys()))
 router.monitor_dir()
