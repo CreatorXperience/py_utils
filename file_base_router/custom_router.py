@@ -23,6 +23,9 @@ class WatchFSEventHandler(events.FileSystemEventHandler):
         self.database = database
         self.config_obj = self.database.config
 
+    def on_modified(self, event: events.FileSystemEvent) -> None:
+        return super().on_modified(event)
+
     def on_created(self, event: events.FileSystemEvent) -> None:
         if event.is_directory:
             print(f"directory created ##### {event.src_path}")
@@ -74,6 +77,10 @@ class WatchFSEventHandler(events.FileSystemEventHandler):
             }
         self.database.update_config()
         super().on_moved(event)
+        for _, dest in enumerate(self.database.config["destinations"]):
+            ismoved = self.move_file(dest, event.src_path)
+            if ismoved:
+                break
 
     def move_file(self, dest_path, file_path):
         """
@@ -89,18 +96,15 @@ class WatchFSEventHandler(events.FileSystemEventHandler):
         )
 
         if len(req) > 0:
-
+            print(req)
             val = self.match_criteria(req[0], file_path)
             if val:
                 print("all passsed")
-                shutil.move(file_path, dest_path)
+                shutil.copy(file_path, dest_path)
                 return True
         else:
             print("no criteria for this location")
             return False
-
-    def retrieve(self, dest_path, file_path):
-        pass
 
     def match_criteria(self, requirement: dict, file_path: str):
         """
@@ -114,7 +118,6 @@ class WatchFSEventHandler(events.FileSystemEventHandler):
                 self.comp_match(attr, val, file_path)
             except ValueError as ve:
                 print(ve)
-                sys.exit()
         return True
 
     def comp_match(self, item, value, file_path):
@@ -227,10 +230,7 @@ class Router:
             val = self.match_criteria(req[0], file_path)
             if val:
                 print("all passsed")
-                shutil.move(file_path, dest_path)
-
-    def retrieve(self, dest_path, file_path):
-        pass
+                shutil.copy(file_path, dest_path)
 
     def match_criteria(self, requirement: dict, file_path: str):
         """
