@@ -7,6 +7,9 @@ import time
 from watchdog import observers
 from watchdog import events
 from config_database import Database
+import shutil
+import os
+import sys
 
 
 class WatchFSEventHandler(events.FileSystemEventHandler):
@@ -97,3 +100,93 @@ class Router:
                 time.sleep(1)
         except KeyboardInterrupt:
             observer.stop()
+
+    def move_file(self, dest_path, file_path):
+        """
+        moves file to destination
+
+        """
+        # shutil.move(file_path, path)
+        # self.match_criteria(dest_path)
+        req = list(
+            filter(
+                lambda val: val["Dest"] == dest_path, self.database.config["criteria"]
+            )
+        )
+
+        self.match_criteria(req[0], file_path)
+
+    def match_criteria(self, requirement: dict, file_path: str):
+        """
+        Match Criteria
+
+        """
+        print(requirement)
+        for attr, val in requirement.items():
+            try:
+                print(attr, val)
+                self.comp_match(attr, val, file_path)
+            except ValueError as ve:
+                print(ve)
+                sys.exit()
+
+    def comp_match(self, item, value, file_path):
+        """
+
+        compares destination requirement with file stat
+
+        """
+        match item:
+            case "ext":
+                path = f"{file_path}"
+                if path.endswith(f".{value}"):
+                    print("extension rule passed ###################")
+                else:
+                    raise ValueError("extension rule failed xxxxxxxxxxxxxxxxxx ")
+
+            case "Dest":
+                print("Destinaton rule passed ################### ")
+
+            case "min-size":
+                file_stats = os.stat(file_path)
+                if file_stats.st_size >= int(value):
+                    print("minimum size  rule passed ################### ")
+                else:
+                    raise ValueError(
+                        """minimum size rule doesn't meet requirements\nREASON: 
+                        file size is lower than the requirement xxxxxxxxxxxxxxxxxx"""
+                    )
+
+            case "max-size":
+                file_stats = os.stat(file_path)
+                if file_stats.st_size <= int(value):
+                    print("maximum size  rule passed ###################")
+                else:
+                    raise ValueError(
+                        """maximum size rule doesn't meet requirements\nREASON: 
+                        file size is higher than the requirement xxxxxxxxxxxxxxxxxx"""
+                    )
+            case "uid":
+                f_stat = os.stat(file_path)
+                uid = f_stat.st_uid
+                if uid == int(value):
+                    print("uid rule passed ################### ")
+                else:
+                    raise ValueError(
+                        """uid rule failed xxxxxxxxxxxxxxxxxx\n
+                            REASON: uid number doesn't meet requirement"""
+                    )
+
+            case "gid":
+                f_stat = os.stat(file_path)
+                gid = f_stat.st_gid
+                if gid == int(value):
+                    print("gid rule passed ################### ")
+                else:
+                    raise ValueError(
+                        """gid rule failed xxxxxxxxxxxxxxxxxx\nREASON:
+                        gid number doesn't meet requirement"""
+                    )
+
+            case _:
+                print("falls in black hole")

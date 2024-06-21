@@ -27,10 +27,10 @@ def add_argument(option):
 
     """
 
-    obj = parser.parser.add_argument(
+    parser_object = parser.parser.add_argument(
         option["opt"], option["abbr"], help=option["help"], default=option["default"]
     )
-    return obj
+    return parser_object
 
 
 add_argument(
@@ -43,21 +43,6 @@ add_argument(
 )
 
 
-# @register
-# def add_dest_parser():
-#     """
-#     Add's network  Subparser to parser object
-#     """
-#     network = subparser.add_parser("destination")
-#     network.add_argument("-c", "--create", help="Create a new destination")
-#     network.add_argument(
-#         "-s", "--show-net", help="Display all networks", action="store_true"
-#     )
-#     network.add_argument(
-#         "-S", "--show-dir", help="Display all directories", action="store_true"
-#     )
-
-
 @register
 def action():
     """
@@ -65,7 +50,11 @@ def action():
 
     """
     act = subparser.add_parser("action")
-    act.add_argument("-m", "--move", help="Move Content to dabase", action="store_true")
+    act.add_argument(
+        "-m",
+        "--move_to",
+        help="Move Content to database",
+    )
     act.add_argument("file", help="File to move")
 
 
@@ -85,7 +74,7 @@ def bind_criteria():
     c_parser.add_argument(
         "ctype",
         help="criteria type",
-        choices=["Ext", "atime", "ctime", "min-size", "max-size", "uid", "gid"],
+        choices=["ext", "min-size", "max-size", "uid", "gid"],
     )
 
     c_parser.add_argument("cvalue", help="value for your type")
@@ -107,13 +96,16 @@ router = Router(database)
 
 if arguments.func == "action":
     if path.exists(path.abspath(arguments.file)):
-        print(database.config)
-        try:
-            shutil.move(path.abspath(arguments.file), dst=database.config["database"])
-            move_event = router.move_event(path.abspath(arguments.file))
-            router.fs_handler.on_moved(move_event)
-        except shutil.Error as Fe:
-            print("file already exists")
+        # try:
+        #     shutil.move(path.abspath(arguments.file), dst=database.config["database"])
+        #     move_event = router.move_event(path.abspath(arguments.file))
+        #     router.fs_handler.on_moved(move_event)
+        # except shutil.Error as Fe:
+        #     print("file already exists")
+        pass
+    if arguments.move_to:
+        router.move_file(arguments.move_to, arguments.file)
+
 elif arguments.func == "criteria":
     if arguments.new:
         pass
